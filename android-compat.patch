@@ -1,0 +1,623 @@
+diff -ruN dropbear-2018.76/configure MOD-dropbear-2018.76/configure
+--- dropbear-2018.76/configure	2018-02-27 07:25:13.000000000 -0700
++++ MOD-dropbear-2018.76/configure	2018-04-12 15:21:49.236912000 -0600
+@@ -4690,11 +4690,11 @@
+ fi
+ 
+ 
+-if test "t$found_crypt_func" = there; then
++#if test "t$found_crypt_func" = there; then
+ 
+ $as_echo "#define HAVE_CRYPT 1" >>confdefs.h
+ 
+-fi
++#fi
+ 
+ # Check if zlib is needed
+
+diff -ruN dropbear-2018.76/default_options.h MOD-dropbear-2018.76/default_options.h
+--- dropbear-2018.76/default_options.h	2018-02-27 07:25:10.000000000 -0700
++++ MOD-dropbear-2018.76/default_options.h	2018-04-13 10:55:29.882055000 -0600
+@@ -13,14 +13,14 @@
+ 
+ IMPORTANT: Some options will require "make clean" after changes */
+ 
+-#define DROPBEAR_DEFPORT "22"
++#define DROPBEAR_DEFPORT "10022"
+ 
+ /* Listen on all interfaces */
+ #define DROPBEAR_DEFADDRESS ""
+ 
+ /* Default hostkey paths - these can be specified on the command line */
+-#define DSS_PRIV_FILENAME "/etc/dropbear/dropbear_dss_host_key"
+-#define RSA_PRIV_FILENAME "/etc/dropbear/dropbear_rsa_host_key"
+-#define ECDSA_PRIV_FILENAME "/etc/dropbear/dropbear_ecdsa_host_key"
++#define DSS_PRIV_FILENAME "./dropbear_dss_host_key"
++#define RSA_PRIV_FILENAME "./dropbear_rsa_host_key"
++#define ECDSA_PRIV_FILENAME "./dropbear_ecdsa_host_key"
+ 
+ /* Set NON_INETD_MODE if you require daemon functionality (ie Dropbear listens
+diff -ruN dropbear-2018.76/runopts.h MOD-dropbear-2018.76/runopts.h
+--- dropbear-2018.76/runopts.h	2018-02-27 07:25:12.000000000 -0700
++++ MOD-dropbear-2018.76/runopts.h	2018-04-12 16:05:49.864914000 -0600
+@@ -123,6 +123,13 @@
+ 	buffer * banner;
+ 	char * pidfile;
+ 
++	int android_mode;
++    char *user_name;
++    char *passwd;
++    char *authkey;
++    uid_t uid;
++	gid_t gid;
++
+ 	char * forced_command;
+ 
+ } svr_runopts;
+diff -ruN dropbear-2018.76/svr-auth.c MOD-dropbear-2018.76/svr-auth.c
+--- dropbear-2018.76/svr-auth.c	2018-02-27 07:25:12.000000000 -0700
++++ MOD-dropbear-2018.76/svr-auth.c	2018-04-13 11:19:33.989962000 -0600
+@@ -37,19 +37,26 @@
+ #include "runopts.h"
+ #include "dbrandom.h"
+ 
++static void authclear(void);
+ static int checkusername(const char *username, unsigned int userlen);
+ 
+ /* initialise the first time for a session, resetting all parameters */
+ void svr_authinitialise() {
+-	memset(&ses.authstate, 0, sizeof(ses.authstate));
+-#if DROPBEAR_SVR_PUBKEY_AUTH
+-	ses.authstate.authtypes |= AUTH_TYPE_PUBKEY;
+-#endif
+-#if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
+-	if (!svr_opts.noauthpass) {
+-		ses.authstate.authtypes |= AUTH_TYPE_PASSWORD;
+-	}
+-#endif
++// 	memset(&ses.authstate, 0, sizeof(ses.authstate));
++// #if DROPBEAR_SVR_PUBKEY_AUTH
++// 	ses.authstate.authtypes |= AUTH_TYPE_PUBKEY;
++// #endif
++// #if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
++// 	if (!svr_opts.noauthpass) {
++// 		ses.authstate.authtypes |= AUTH_TYPE_PASSWORD;
++// 	}
++// #endif
++	ses.authstate.failcount = 0;
++	ses.authstate.pw_name = NULL;
++	ses.authstate.pw_dir = NULL;
++	ses.authstate.pw_shell = NULL;
++	ses.authstate.pw_passwd = NULL;
++	authclear();
+ }
+ 
+ /* Send a banner message if specified to the client. The client might
+@@ -146,13 +153,23 @@
+ 	if (!svr_opts.noauthpass &&
+ 			!(svr_opts.norootpass && ses.authstate.pw_uid == 0) ) {
+ 		/* user wants to try password auth */
++		// if (methodlen == AUTH_METHOD_PASSWORD_LEN &&
++		// 		strncmp(methodname, AUTH_METHOD_PASSWORD,
++		// 			AUTH_METHOD_PASSWORD_LEN) == 0) {
++		// 	if (valid_user) {
++		// 		svr_auth_password();
++		// 		goto out;
++		// 	}
++		// }
+ 		if (methodlen == AUTH_METHOD_PASSWORD_LEN &&
+ 				strncmp(methodname, AUTH_METHOD_PASSWORD,
+ 					AUTH_METHOD_PASSWORD_LEN) == 0) {
+-			if (valid_user) {
+-				svr_auth_password();
++				if (svr_opts.android_mode) {
++					svr_auth_android();
++				} else if (valid_user) {
++					svr_auth_password();
++				}
+ 				goto out;
+-			}
+ 		}
+ 	}
+ #endif
+@@ -233,6 +250,35 @@
+ }
+ #endif
+ 
++/* Reset the auth state, but don't reset the failcount. This is for if the
++ * user decides to try with a different username etc, and is also invoked
++ * on initialisation */
++static void authclear() {
++	
++	memset(&ses.authstate, 0, sizeof(ses.authstate));
++#if DROPBEAR_SVR_PUBKEY_AUTH
++	ses.authstate.authtypes |= AUTH_TYPE_PUBKEY;
++#endif
++#if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
++	if (!svr_opts.noauthpass) {
++		ses.authstate.authtypes |= AUTH_TYPE_PASSWORD;
++	}
++#endif
++	if (ses.authstate.pw_name) {
++		m_free(ses.authstate.pw_name);
++	}
++	if (ses.authstate.pw_shell) {
++		m_free(ses.authstate.pw_shell);
++	}
++	if (ses.authstate.pw_dir) {
++		m_free(ses.authstate.pw_dir);
++	}
++	if (ses.authstate.pw_passwd) {
++		m_free(ses.authstate.pw_passwd);
++	}
++	
++}
++
+ /* Check that the username exists and isn't disallowed (root), and has a valid shell.
+  * returns DROPBEAR_SUCCESS on valid username, DROPBEAR_FAILURE on failure */
+ static int checkusername(const char *username, unsigned int userlen) {
+@@ -251,10 +297,44 @@
+ 			svr_ses.addrstring);
+ 	}
+ 
+-	if (ses.authstate.username == NULL) {
+-		/* first request */
+-		fill_passwd(username);
+-		ses.authstate.username = m_strdup(username);
++	// if (ses.authstate.username == NULL) {
++	// 	/* first request */
++	// 	fill_passwd(username);
++	// 	ses.authstate.username = m_strdup(username);
++	// }
++	if (ses.authstate.username == NULL ||
++		strcmp(username, ses.authstate.username) != 0) {
++			/* the username needs resetting */
++			if (ses.authstate.username != NULL) {
++				dropbear_log(LOG_WARNING, "Client trying multiple usernames from %s",
++							svr_ses.addrstring);
++				m_free(ses.authstate.username);
++			}
++			authclear();
++			if (svr_opts.android_mode) {
++				ses.authstate.pw_uid = svr_opts.uid;
++				ses.authstate.pw_gid = svr_opts.gid;
++				if (svr_opts.user_name != NULL) {
++					ses.authstate.pw_name = m_strdup(svr_opts.user_name);
++				} else {
++					dropbear_log(LOG_WARNING, "Username null");
++					ses.authstate.pw_name = m_strdup("nobody");
++				}
++
++				if (svr_opts.passwd != NULL) {
++					ses.authstate.pw_passwd = m_strdup(svr_opts.passwd);
++				} else {
++					dropbear_log(LOG_WARNING, "Password null");
++					ses.authstate.pw_passwd = m_strdup("");
++				}
++
++				ses.authstate.pw_dir = m_strdup("/data/local");
++				ses.authstate.pw_shell = m_strdup("/system/bin/sh");
++			} else {
++				dropbear_log(LOG_WARNING, "NOT android mode!!");
++				fill_passwd(username);
++				ses.authstate.username = m_strdup(username);
++			}
+ 	} else {
+ 		/* check username hasn't changed */
+ 		if (strcmp(username, ses.authstate.username) != 0) {
+@@ -323,6 +403,9 @@
+ 		usershell = "/bin/sh";
+ 	}
+ 
++	if (svr_opts.android_mode)
++		goto goodshell;
++
+ 	/* check the shell is valid. If /etc/shells doesn't exist, getusershell()
+ 	 * should return some standard shells like "/bin/sh" and "/bin/csh" (this
+ 	 * is platform-specific) */
+diff -ruN dropbear-2018.76/svr-authpasswd.c MOD-dropbear-2018.76/svr-authpasswd.c
+--- dropbear-2018.76/svr-authpasswd.c	2018-02-27 07:25:12.000000000 -0700
++++ MOD-dropbear-2018.76/svr-authpasswd.c	2018-04-13 12:21:52.574971000 -0600
+@@ -48,22 +48,12 @@
+ 
+ /* Process a password auth request, sending success or failure messages as
+  * appropriate */
+-void svr_auth_password() {
+-	
+-	char * passwdcrypt = NULL; /* the crypt from /etc/passwd or /etc/shadow */
+-	char * testcrypt = NULL; /* crypt generated from the user's password sent */
+-	char * password;
++void svr_auth_android() {
++	char *password;
+ 	unsigned int passwordlen;
+ 
+ 	unsigned int changepw;
+ 
+-	passwdcrypt = ses.authstate.pw_passwd;
+-
+-#ifdef DEBUG_HACKCRYPT
+-	/* debugging crypt for non-root testing with shadows */
+-	passwdcrypt = DEBUG_HACKCRYPT;
+-#endif
+-
+ 	/* check if client wants to change password */
+ 	changepw = buf_getbool(ses.payload);
+ 	if (changepw) {
+@@ -74,28 +64,15 @@
+ 
+ 	password = buf_getstring(ses.payload, &passwordlen);
+ 
+-	/* the first bytes of passwdcrypt are the salt */
+-	testcrypt = crypt(password, passwdcrypt);
+-	m_burn(password, passwordlen);
+-	m_free(password);
+-
+-	if (testcrypt == NULL) {
+-		/* crypt() with an invalid salt like "!!" */
+-		dropbear_log(LOG_WARNING, "User account '%s' is locked",
+-				ses.authstate.pw_name);
+-		send_msg_userauth_failure(0, 1);
+-		return;
+-	}
+-
+ 	/* check for empty password */
+-	if (passwdcrypt[0] == '\0') {
+-		dropbear_log(LOG_WARNING, "User '%s' has blank password, rejected",
++	if (password[0] == '\0') {
++		dropbear_log(LOG_WARNING, "user '%s' has blank password, rejected",
+ 				ses.authstate.pw_name);
+ 		send_msg_userauth_failure(0, 1);
+ 		return;
+ 	}
+-
+-	if (constant_time_strcmp(testcrypt, passwdcrypt) == 0) {
++	
++	if (constant_time_strcmp(password, svr_opts.passwd) == 0) {
+ 		/* successful authentication */
+ 		dropbear_log(LOG_NOTICE, 
+ 				"Password auth succeeded for '%s' from %s",
+@@ -111,4 +88,10 @@
+ 	}
+ }
+ 
++/* Process a password auth request, sending success or failure messages as
++ * appropriate */
++void svr_auth_password() {
++	send_msg_userauth_failure(0, 1);
++}
++
+ #endif
+diff -ruN dropbear-2018.76/svr-authpasswd.c.bak MOD-dropbear-2018.76/svr-authpasswd.c.bak
+--- dropbear-2018.76/svr-authpasswd.c.bak	1969-12-31 17:00:00.000000000 -0700
++++ MOD-dropbear-2018.76/svr-authpasswd.c.bak	2018-02-27 07:25:12.000000000 -0700
+@@ -0,0 +1,114 @@
++/*
++ * Dropbear - a SSH2 server
++ * 
++ * Copyright (c) 2002,2003 Matt Johnston
++ * All rights reserved.
++ * 
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ * 
++ * The above copyright notice and this permission notice shall be included in
++ * all copies or substantial portions of the Software.
++ * 
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE. */
++
++/* Validates a user password */
++
++#include "includes.h"
++#include "session.h"
++#include "buffer.h"
++#include "dbutil.h"
++#include "auth.h"
++#include "runopts.h"
++
++#if DROPBEAR_SVR_PASSWORD_AUTH
++
++/* not constant time when strings are differing lengths. 
++ string content isn't leaked, and crypt hashes are predictable length. */
++static int constant_time_strcmp(const char* a, const char* b) {
++	size_t la = strlen(a);
++	size_t lb = strlen(b);
++
++	if (la != lb) {
++		return 1;
++	}
++
++	return constant_time_memcmp(a, b, la);
++}
++
++/* Process a password auth request, sending success or failure messages as
++ * appropriate */
++void svr_auth_password() {
++	
++	char * passwdcrypt = NULL; /* the crypt from /etc/passwd or /etc/shadow */
++	char * testcrypt = NULL; /* crypt generated from the user's password sent */
++	char * password;
++	unsigned int passwordlen;
++
++	unsigned int changepw;
++
++	passwdcrypt = ses.authstate.pw_passwd;
++
++#ifdef DEBUG_HACKCRYPT
++	/* debugging crypt for non-root testing with shadows */
++	passwdcrypt = DEBUG_HACKCRYPT;
++#endif
++
++	/* check if client wants to change password */
++	changepw = buf_getbool(ses.payload);
++	if (changepw) {
++		/* not implemented by this server */
++		send_msg_userauth_failure(0, 1);
++		return;
++	}
++
++	password = buf_getstring(ses.payload, &passwordlen);
++
++	/* the first bytes of passwdcrypt are the salt */
++	testcrypt = crypt(password, passwdcrypt);
++	m_burn(password, passwordlen);
++	m_free(password);
++
++	if (testcrypt == NULL) {
++		/* crypt() with an invalid salt like "!!" */
++		dropbear_log(LOG_WARNING, "User account '%s' is locked",
++				ses.authstate.pw_name);
++		send_msg_userauth_failure(0, 1);
++		return;
++	}
++
++	/* check for empty password */
++	if (passwdcrypt[0] == '\0') {
++		dropbear_log(LOG_WARNING, "User '%s' has blank password, rejected",
++				ses.authstate.pw_name);
++		send_msg_userauth_failure(0, 1);
++		return;
++	}
++
++	if (constant_time_strcmp(testcrypt, passwdcrypt) == 0) {
++		/* successful authentication */
++		dropbear_log(LOG_NOTICE, 
++				"Password auth succeeded for '%s' from %s",
++				ses.authstate.pw_name,
++				svr_ses.addrstring);
++		send_msg_userauth_success();
++	} else {
++		dropbear_log(LOG_WARNING,
++				"Bad password attempt for '%s' from %s",
++				ses.authstate.pw_name,
++				svr_ses.addrstring);
++		send_msg_userauth_failure(0, 1);
++	}
++}
++
++#endif
+diff -ruN dropbear-2018.76/svr-authpubkey.c MOD-dropbear-2018.76/svr-authpubkey.c
+--- dropbear-2018.76/svr-authpubkey.c	2018-02-27 07:25:12.000000000 -0700
++++ MOD-dropbear-2018.76/svr-authpubkey.c	2018-04-13 09:56:18.319287000 -0600
+@@ -64,6 +64,7 @@
+ #include "ssh.h"
+ #include "packet.h"
+ #include "algo.h"
++#include "runopts.h"
+ 
+ #if DROPBEAR_SVR_PUBKEY_AUTH
+ 
+@@ -315,19 +316,23 @@
+ 	}
+ 
+ 	/* check file permissions, also whether file exists */
+-	if (checkpubkeyperms() == DROPBEAR_FAILURE) {
++	if (!svr_opts.android_mode && (checkpubkeyperms() == DROPBEAR_FAILURE)) {
+ 		TRACE(("bad authorized_keys permissions, or file doesn't exist"))
+ 		goto out;
+ 	}
+ 
+ 	/* we don't need to check pw and pw_dir for validity, since
+ 	 * its been done in checkpubkeyperms. */
+-	len = strlen(ses.authstate.pw_dir);
+-	/* allocate max required pathname storage,
+-	 * = path + "/.ssh/authorized_keys" + '\0' = pathlen + 22 */
+-	filename = m_malloc(len + 22);
+-	snprintf(filename, len + 22, "%s/.ssh/authorized_keys", 
+-				ses.authstate.pw_dir);
++	if (svr_opts.android_mode) {
++		if (svr_opts.authkey == NULL)
++			goto out;
++		filename = m_strdup(svr_opts.authkey);
++	} else {
++		/* allocate max required pathname storage,
++	 	* = path + "/.ssh/authorized_keys" + '\0' = pathlen + 22 */
++		filename = m_malloc(31);
++		snprintf(filename, 31, "/data/dropbear/authorized_keys");
++	}
+ 
+ 	/* open the file as the authenticating user. */
+ 	origuid = getuid();
+diff -ruN dropbear-2018.76/svr-chansession.c MOD-dropbear-2018.76/svr-chansession.c
+--- dropbear-2018.76/svr-chansession.c	2018-02-27 07:25:12.000000000 -0700
++++ MOD-dropbear-2018.76/svr-chansession.c	2018-04-13 09:52:05.154533000 -0600
+@@ -593,11 +593,23 @@
+ 		dropbear_exit("Out of memory"); /* TODO disconnect */
+ 	}
+ 
+-	pw = getpwnam(ses.authstate.pw_name);
++	if (svr_opts.android_mode) {
++		pw = malloc(sizeof(struct passwd));
++		pw->pw_uid = svr_opts.uid;
++		pw->pw_gid = svr_opts.gid;
++	} else {
++		pw = getpwnam(ses.authstate.pw_name);
++	}
++
+ 	if (!pw)
+ 		dropbear_exit("getpwnam failed after succeeding previously");
++	
+ 	pty_setowner(pw, chansess->tty);
+ 
++	if (svr_opts.android_mode) {
++		free(pw);
++	}
++
+ 	/* Set up the rows/col counts */
+ 	sessionwinchange(chansess);
+ 
+@@ -961,7 +973,20 @@
+ 	addnewvar("LOGNAME", ses.authstate.pw_name);
+ 	addnewvar("HOME", ses.authstate.pw_dir);
+ 	addnewvar("SHELL", get_user_shell());
+-	addnewvar("PATH", DEFAULT_PATH);
++
++	if (svr_opts.android_mode) {
++		addnewvar("PATH", "/sbin:/system/sbin:/system/bin:/system/xbin");
++		addnewvar("ANDROID_ASSETS", "/system/app");
++		addnewvar("ANDROID_BOOTLOGO", "1");
++		addnewvar("ANDROID_DATA", "/data");
++		addnewvar("ANDROID_PROPERTY_WORKSPACE", "10,32768");
++		addnewvar("ANDROID_ROOT", "/system");
++		addnewvar("BOOTCLASSPATH", "/system/framework/core.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar");
++		addnewvar("EXTERNAL_STORAGE", "/sdcard");
++	} else {
++		addnewvar("PATH", DEFAULT_PATH);
++	}
++
+ 	if (chansess->term != NULL) {
+ 		addnewvar("TERM", chansess->term);
+ 	}
+diff -ruN dropbear-2018.76/svr-runopts.c MOD-dropbear-2018.76/svr-runopts.c
+--- dropbear-2018.76/svr-runopts.c	2018-02-27 07:25:12.000000000 -0700
++++ MOD-dropbear-2018.76/svr-runopts.c	2018-04-13 09:48:34.333137000 -0600
+@@ -42,6 +42,12 @@
+ static void printhelp(const char * progname) {
+ 
+ 	fprintf(stderr, "Dropbear server v%s https://matt.ucc.asn.au/dropbear/dropbear.html\n"
++					"-A Android Mode, specify a user explicitly\n"
++					"-N Android Mode, user name\n"
++					"-C Android Mode, password\n"
++					"-T Android Mode, public key file (authorized_keys)\n"               
++					"-U Android Mode, UID\n"
++					"-G Android Mode, GID\n"
+ 					"Usage: %s [options]\n"
+ 					"-b bannerfile	Display the contents of bannerfile"
+ 					" before user login\n"
+@@ -122,6 +128,7 @@
+ 
+ 	unsigned int i, j;
+ 	char ** next = NULL;
++	int nextisint = 0;
+ 	int nextisport = 0;
+ 	char* recv_window_arg = NULL;
+ 	char* keepalive_arg = NULL;
+@@ -150,6 +157,12 @@
+ 	svr_opts.hostkey = NULL;
+ 	svr_opts.delay_hostkey = 0;
+ 	svr_opts.pidfile = DROPBEAR_PIDFILE;
++	svr_opts.android_mode = 0;
++	svr_opts.user_name = NULL;
++	svr_opts.passwd = NULL;
++	svr_opts.authkey = NULL;
++	svr_opts.uid = 0;
++	svr_opts.gid = 0;
+ #if DROPBEAR_SVR_LOCALTCPFWD
+ 	svr_opts.nolocaltcp = 0;
+ #endif
+@@ -185,6 +198,26 @@
+ 
+ 		for (j = 1; (c = argv[i][j]) != '\0' && !next && !nextisport; j++) {
+ 			switch (c) {
++				case 'A':
++					svr_opts.android_mode = 1;
++					break;
++				case 'N':
++					next = &svr_opts.user_name;
++					break;
++				case 'C':
++					next = &svr_opts.passwd;
++					break;
++				case 'T':
++					next = &svr_opts.authkey;
++					break;
++				case 'U':
++					next = &svr_opts.uid;
++					nextisint = 1;
++					break;
++				case 'G':
++					next = &svr_opts.gid;
++					nextisint = 1;
++					break;
+ 				case 'b':
+ 					next = &svr_opts.bannerfile;
+ 					break;
+@@ -239,11 +272,11 @@
+ 				case 'w':
+ 					svr_opts.norootlogin = 1;
+ 					break;
+-#ifdef HAVE_GETGROUPLIST
+-				case 'G':
+-					next = &svr_opts.restrict_group;
+-					break;
+-#endif
++// #ifdef HAVE_GETGROUPLIST
++// 				case 'G':
++// 					next = &svr_opts.restrict_group;
++// 					break;
++// #endif
+ 				case 'W':
+ 					next = &recv_window_arg;
+ 					break;
+@@ -253,9 +286,9 @@
+ 				case 'I':
+ 					next = &idle_timeout_arg;
+ 					break;
+-				case 'T':
+-					next = &maxauthtries_arg;
+-					break;
++				// case 'T':
++				// 	next = &maxauthtries_arg;
++				// 	break;
+ #if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
+ 				case 's':
+ 					svr_opts.noauthpass = 1;
+@@ -302,6 +335,13 @@
+ 			}
+ 		}
+ 
++		if (nextisint) {
++			*next = atoi(argv[i]);
++			nextisint = 0;
++			next = 0x00;
++			continue;
++		}
++
+ 		if (nextisport) {
+ 			addportandaddress(&argv[i][j]);
+ 			nextisport = 0;
+diff -ruN dropbear-2018.76/sysoptions.h MOD-dropbear-2018.76/sysoptions.h
+--- dropbear-2018.76/sysoptions.h	2018-02-27 07:25:12.000000000 -0700
++++ MOD-dropbear-2018.76/sysoptions.h	2018-04-12 15:22:33.624601000 -0600
+@@ -233,9 +233,9 @@
+ #error "DROPBEAR_SVR_PATM_AUTH requires PAM headers. Perhaps ./configure --enable-pam ?"
+ #endif
+ 
+-#if DROPBEAR_SVR_PASSWORD_AUTH && !HAVE_CRYPT
+-	#error "DROPBEAR_SVR_PASSWORD_AUTH requires `crypt()'."
+-#endif
++//#if DROPBEAR_SVR_PASSWORD_AUTH && !HAVE_CRYPT
++//	#error "DROPBEAR_SVR_PASSWORD_AUTH requires `crypt()'."
++//#endif
+ 
+ #if !(DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH || DROPBEAR_SVR_PUBKEY_AUTH)
+ 	#error "At least one server authentication type must be enabled. DROPBEAR_SVR_PUBKEY_AUTH and DROPBEAR_SVR_PASSWORD_AUTH are recommended."
