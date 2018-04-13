@@ -1,7 +1,7 @@
 Android Dropbear
 =========
 
-A patch set and script to cross-compile Dropbear SSH server for use on Android with password authentication.
+A patch set and script to download and cross-compile Dropbear SSH server for use on Android with password authentication.
 As the 64-bit binaries don't seem to work reliably, this project is configured to compile 32-bit binaries
 using the Android NDK toolchain.
 
@@ -15,15 +15,16 @@ export DISABLE_PIE=1
 Building Dropbear for Android
 ----
 
-The process consists of just three parts:
-1) Build your standalone android toolchain.  
+The process consists of just four parts:  
+1) Specify the version of Dropbear you'd like to download and crosscompile. Open build-android-dropbear.sh and change the value of ``VERSION`` at the top, which defaults to ``2018.76``  
+2) Build your standalone android toolchain.  
 See the android developer site for more info: https://developer.android.com/ndk/guides/standalone_toolchain.html
-2) Export your toolchain's location:
+3) Export your toolchain's location:
 ```
 export TOOLCHAIN=/path/to/standalone/toolchain
 ```
 
-3) Run the build script:
+4) Run the build script:
 ```
 ./build-dropbear-android.sh
 ```
