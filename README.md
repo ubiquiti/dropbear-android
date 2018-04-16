@@ -71,4 +71,7 @@ https://github.com/mkj/dropbear
 Thanks to NHellfire who's work made the process of getting 2018.76 up and running much easier:  
 https://github.com/NHellFire/dropbear-android  
 
+Thanks to jmfoy for the ```config.sub``` and ```config.guess``` files:  
+https://github.com/jfmoy/android-dropbear
+
 Another thank you to the various other repositories out there whose various approches helped lead to this completed project.
