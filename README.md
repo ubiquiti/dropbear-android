@@ -38,7 +38,7 @@ Customizations
 Much of the project is pre-configured with sane defaults, but if you'd like to customize the behavior of Dropbear for Android, here are a few tips.
 1) To change/configure most options, look in and modify the following files as appropriate:  
 	a) default_options.h  
-	b) systoptions.h  
+	b) sysoptions.h  
 	c) config.h  
 
 For instance, to change the port Dropbear runs on or to change the default location in which Dropbear tries to generate keys, edit ``default_options.h`` and modify the respective values.  
