@@ -41,7 +41,27 @@ Much of the project is pre-configured with sane defaults, but if you'd like to c
 	b) systoptions.h  
 	c) config.h  
 
-For instance, to change the port Dropbear runs on or to change the default location in which Dropbear tries to generate keys, edit ``default_options.h`` and modify the respective values.
+For instance, to change the port Dropbear runs on or to change the default location in which Dropbear tries to generate keys, edit ``default_options.h`` and modify the respective values.  
+  
+Basic usage
+----
+Dropbear for Android adds a few special flags to Dropbear:  
+- A: signifies Android mode and allows for password authentication in the absence of the ```crypt()``` lib
+- G: allows us to specify the GID dropbear should run as  
+- U: allows us to specify the UID dropbear should run as  
+- N: specify the login username for the session  
+- T: specify the authentication key for the session  
+
+A typical usecase would be:  
+```
+./dropbear -d /path/to/dropbear_dss_host_key -r /path/to/dropbear_rsa_hostkey -p 10022 -P /path/to/dropbear.pid -R -A -N user -C password -U u0_aXX -G u0_aXX
+```
+
+The above command will run the Dropbear server with password authentication enabled for the user 'user' with password 'password' and will attempt to run as u0_aXX and in that group. More information can be found by issuing:  
+  
+```
+./dropbear --help
+```
 
 Credits
 ----
