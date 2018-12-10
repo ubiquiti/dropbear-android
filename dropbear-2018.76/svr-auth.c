@@ -37,19 +37,26 @@
 #include "runopts.h"
 #include "dbrandom.h"
 
+static void authclear(void);
 static int checkusername(const char *username, unsigned int userlen);
 
 /* initialise the first time for a session, resetting all parameters */
 void svr_authinitialise() {
-	memset(&ses.authstate, 0, sizeof(ses.authstate));
-#if DROPBEAR_SVR_PUBKEY_AUTH
-	ses.authstate.authtypes |= AUTH_TYPE_PUBKEY;
-#endif
-#if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
-	if (!svr_opts.noauthpass) {
-		ses.authstate.authtypes |= AUTH_TYPE_PASSWORD;
-	}
-#endif
+// 	memset(&ses.authstate, 0, sizeof(ses.authstate));
+// #if DROPBEAR_SVR_PUBKEY_AUTH
+// 	ses.authstate.authtypes |= AUTH_TYPE_PUBKEY;
+// #endif
+// #if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
+// 	if (!svr_opts.noauthpass) {
+// 		ses.authstate.authtypes |= AUTH_TYPE_PASSWORD;
+// 	}
+// #endif
+	ses.authstate.failcount = 0;
+	ses.authstate.pw_name = NULL;
+	ses.authstate.pw_dir = NULL;
+	ses.authstate.pw_shell = NULL;
+	ses.authstate.pw_passwd = NULL;
+	authclear();
 }
 
 /* Send a banner message if specified to the client. The client might
@@ -146,13 +153,23 @@ void recv_msg_userauth_request() {
 	if (!svr_opts.noauthpass &&
 			!(svr_opts.norootpass && ses.authstate.pw_uid == 0) ) {
 		/* user wants to try password auth */
+		// if (methodlen == AUTH_METHOD_PASSWORD_LEN &&
+		// 		strncmp(methodname, AUTH_METHOD_PASSWORD,
+		// 			AUTH_METHOD_PASSWORD_LEN) == 0) {
+		// 	if (valid_user) {
+		// 		svr_auth_password();
+		// 		goto out;
+		// 	}
+		// }
 		if (methodlen == AUTH_METHOD_PASSWORD_LEN &&
 				strncmp(methodname, AUTH_METHOD_PASSWORD,
 					AUTH_METHOD_PASSWORD_LEN) == 0) {
-			if (valid_user) {
-				svr_auth_password();
+				if (svr_opts.android_mode) {
+					svr_auth_android();
+				} else if (valid_user) {
+					svr_auth_password();
+				}
 				goto out;
-			}
 		}
 	}
 #endif
@@ -233,6 +250,35 @@ static int check_group_membership(gid_t check_gid, const char* username, gid_t u
 }
 #endif
 
+/* Reset the auth state, but don't reset the failcount. This is for if the
+ * user decides to try with a different username etc, and is also invoked
+ * on initialisation */
+static void authclear() {
+	
+	memset(&ses.authstate, 0, sizeof(ses.authstate));
+#if DROPBEAR_SVR_PUBKEY_AUTH
+	ses.authstate.authtypes |= AUTH_TYPE_PUBKEY;
+#endif
+#if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
+	if (!svr_opts.noauthpass) {
+		ses.authstate.authtypes |= AUTH_TYPE_PASSWORD;
+	}
+#endif
+	if (ses.authstate.pw_name) {
+		m_free(ses.authstate.pw_name);
+	}
+	if (ses.authstate.pw_shell) {
+		m_free(ses.authstate.pw_shell);
+	}
+	if (ses.authstate.pw_dir) {
+		m_free(ses.authstate.pw_dir);
+	}
+	if (ses.authstate.pw_passwd) {
+		m_free(ses.authstate.pw_passwd);
+	}
+	
+}
+
 /* Check that the username exists and isn't disallowed (root), and has a valid shell.
  * returns DROPBEAR_SUCCESS on valid username, DROPBEAR_FAILURE on failure */
 static int checkusername(const char *username, unsigned int userlen) {
@@ -251,10 +297,44 @@ static int checkusername(const char *username, unsigned int userlen) {
 			svr_ses.addrstring);
 	}
 
-	if (ses.authstate.username == NULL) {
-		/* first request */
-		fill_passwd(username);
-		ses.authstate.username = m_strdup(username);
+	// if (ses.authstate.username == NULL) {
+	// 	/* first request */
+	// 	fill_passwd(username);
+	// 	ses.authstate.username = m_strdup(username);
+	// }
+	if (ses.authstate.username == NULL ||
+		strcmp(username, ses.authstate.username) != 0) {
+			/* the username needs resetting */
+			if (ses.authstate.username != NULL) {
+				dropbear_log(LOG_WARNING, "Client trying multiple usernames from %s",
+							svr_ses.addrstring);
+				m_free(ses.authstate.username);
+			}
+			authclear();
+			if (svr_opts.android_mode) {
+				ses.authstate.pw_uid = svr_opts.uid;
+				ses.authstate.pw_gid = svr_opts.gid;
+				if (svr_opts.user_name != NULL) {
+					ses.authstate.pw_name = m_strdup(svr_opts.user_name);
+				} else {
+					dropbear_log(LOG_WARNING, "Username null");
+					ses.authstate.pw_name = m_strdup("nobody");
+				}
+
+				if (svr_opts.passwd != NULL) {
+					ses.authstate.pw_passwd = m_strdup(svr_opts.passwd);
+				} else {
+					dropbear_log(LOG_WARNING, "Password null");
+					ses.authstate.pw_passwd = m_strdup("");
+				}
+
+				ses.authstate.pw_dir = m_strdup("/data/local");
+				ses.authstate.pw_shell = m_strdup("/system/bin/sh");
+			} else {
+				dropbear_log(LOG_WARNING, "NOT android mode!!");
+				fill_passwd(username);
+				ses.authstate.username = m_strdup(username);
+			}
 	} else {
 		/* check username hasn't changed */
 		if (strcmp(username, ses.authstate.username) != 0) {
@@ -322,6 +402,9 @@ static int checkusername(const char *username, unsigned int userlen) {
 		/* empty shell in /etc/passwd means /bin/sh according to passwd(5) */
 		usershell = "/bin/sh";
 	}
+
+	if (svr_opts.android_mode)
+		goto goodshell;
 
 	/* check the shell is valid. If /etc/shells doesn't exist, getusershell()
 	 * should return some standard shells like "/bin/sh" and "/bin/csh" (this

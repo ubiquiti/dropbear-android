@@ -42,6 +42,12 @@ static void addhostkey(const char *keyfile);
 static void printhelp(const char * progname) {
 
 	fprintf(stderr, "Dropbear server v%s https://matt.ucc.asn.au/dropbear/dropbear.html\n"
+					"-A Android Mode, specify a user explicitly\n"
+					"-N Android Mode, user name\n"
+					"-C Android Mode, password\n"
+					"-T Android Mode, public key file (authorized_keys)\n"               
+					"-U Android Mode, UID\n"
+					"-G Android Mode, GID\n"
 					"Usage: %s [options]\n"
 					"-b bannerfile	Display the contents of bannerfile"
 					" before user login\n"
@@ -122,6 +128,7 @@ void svr_getopts(int argc, char ** argv) {
 
 	unsigned int i, j;
 	char ** next = NULL;
+	int nextisint = 0;
 	int nextisport = 0;
 	char* recv_window_arg = NULL;
 	char* keepalive_arg = NULL;
@@ -150,6 +157,12 @@ void svr_getopts(int argc, char ** argv) {
 	svr_opts.hostkey = NULL;
 	svr_opts.delay_hostkey = 0;
 	svr_opts.pidfile = DROPBEAR_PIDFILE;
+	svr_opts.android_mode = 0;
+	svr_opts.user_name = NULL;
+	svr_opts.passwd = NULL;
+	svr_opts.authkey = NULL;
+	svr_opts.uid = 0;
+	svr_opts.gid = 0;
 #if DROPBEAR_SVR_LOCALTCPFWD
 	svr_opts.nolocaltcp = 0;
 #endif
@@ -185,6 +198,26 @@ void svr_getopts(int argc, char ** argv) {
 
 		for (j = 1; (c = argv[i][j]) != '\0' && !next && !nextisport; j++) {
 			switch (c) {
+				case 'A':
+					svr_opts.android_mode = 1;
+					break;
+				case 'N':
+					next = &svr_opts.user_name;
+					break;
+				case 'C':
+					next = &svr_opts.passwd;
+					break;
+				case 'T':
+					next = &svr_opts.authkey;
+					break;
+				case 'U':
+					next = &svr_opts.uid;
+					nextisint = 1;
+					break;
+				case 'G':
+					next = &svr_opts.gid;
+					nextisint = 1;
+					break;
 				case 'b':
 					next = &svr_opts.bannerfile;
 					break;
@@ -239,11 +272,11 @@ void svr_getopts(int argc, char ** argv) {
 				case 'w':
 					svr_opts.norootlogin = 1;
 					break;
-#ifdef HAVE_GETGROUPLIST
-				case 'G':
-					next = &svr_opts.restrict_group;
-					break;
-#endif
+// #ifdef HAVE_GETGROUPLIST
+// 				case 'G':
+// 					next = &svr_opts.restrict_group;
+// 					break;
+// #endif
 				case 'W':
 					next = &recv_window_arg;
 					break;
@@ -253,9 +286,9 @@ void svr_getopts(int argc, char ** argv) {
 				case 'I':
 					next = &idle_timeout_arg;
 					break;
-				case 'T':
-					next = &maxauthtries_arg;
-					break;
+				// case 'T':
+				// 	next = &maxauthtries_arg;
+				// 	break;
 #if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
 				case 's':
 					svr_opts.noauthpass = 1;
@@ -300,6 +333,13 @@ void svr_getopts(int argc, char ** argv) {
 			if (!argv[i]) {
 				dropbear_exit("Missing argument");
 			}
+		}
+
+		if (nextisint) {
+			*next = atoi(argv[i]);
+			nextisint = 0;
+			next = 0x00;
+			continue;
 		}
 
 		if (nextisport) {

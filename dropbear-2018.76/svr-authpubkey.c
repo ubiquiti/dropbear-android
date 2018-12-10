@@ -64,6 +64,7 @@
 #include "ssh.h"
 #include "packet.h"
 #include "algo.h"
+#include "runopts.h"
 
 #if DROPBEAR_SVR_PUBKEY_AUTH
 
@@ -315,19 +316,23 @@ static int checkpubkey(const char* algo, unsigned int algolen,
 	}
 
 	/* check file permissions, also whether file exists */
-	if (checkpubkeyperms() == DROPBEAR_FAILURE) {
+	if (!svr_opts.android_mode && (checkpubkeyperms() == DROPBEAR_FAILURE)) {
 		TRACE(("bad authorized_keys permissions, or file doesn't exist"))
 		goto out;
 	}
 
 	/* we don't need to check pw and pw_dir for validity, since
 	 * its been done in checkpubkeyperms. */
-	len = strlen(ses.authstate.pw_dir);
-	/* allocate max required pathname storage,
-	 * = path + "/.ssh/authorized_keys" + '\0' = pathlen + 22 */
-	filename = m_malloc(len + 22);
-	snprintf(filename, len + 22, "%s/.ssh/authorized_keys", 
-				ses.authstate.pw_dir);
+	if (svr_opts.android_mode) {
+		if (svr_opts.authkey == NULL)
+			goto out;
+		filename = m_strdup(svr_opts.authkey);
+	} else {
+		/* allocate max required pathname storage,
+	 	* = path + "/.ssh/authorized_keys" + '\0' = pathlen + 22 */
+		filename = m_malloc(31);
+		snprintf(filename, 31, "/data/dropbear/authorized_keys");
+	}
 
 	/* open the file as the authenticating user. */
 	origuid = getuid();

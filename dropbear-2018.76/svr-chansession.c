@@ -593,10 +593,22 @@ static int sessionpty(struct ChanSess * chansess) {
 		dropbear_exit("Out of memory"); /* TODO disconnect */
 	}
 
-	pw = getpwnam(ses.authstate.pw_name);
+	if (svr_opts.android_mode) {
+		pw = malloc(sizeof(struct passwd));
+		pw->pw_uid = svr_opts.uid;
+		pw->pw_gid = svr_opts.gid;
+	} else {
+		pw = getpwnam(ses.authstate.pw_name);
+	}
+
 	if (!pw)
 		dropbear_exit("getpwnam failed after succeeding previously");
+	
 	pty_setowner(pw, chansess->tty);
+
+	if (svr_opts.android_mode) {
+		free(pw);
+	}
 
 	/* Set up the rows/col counts */
 	sessionwinchange(chansess);
@@ -961,7 +973,20 @@ static void execchild(const void *user_data) {
 	addnewvar("LOGNAME", ses.authstate.pw_name);
 	addnewvar("HOME", ses.authstate.pw_dir);
 	addnewvar("SHELL", get_user_shell());
-	addnewvar("PATH", DEFAULT_PATH);
+
+	if (svr_opts.android_mode) {
+		addnewvar("PATH", "/sbin:/system/sbin:/system/bin:/system/xbin");
+		addnewvar("ANDROID_ASSETS", "/system/app");
+		addnewvar("ANDROID_BOOTLOGO", "1");
+		addnewvar("ANDROID_DATA", "/data");
+		addnewvar("ANDROID_PROPERTY_WORKSPACE", "10,32768");
+		addnewvar("ANDROID_ROOT", "/system");
+		addnewvar("BOOTCLASSPATH", "/system/framework/core.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar");
+		addnewvar("EXTERNAL_STORAGE", "/sdcard");
+	} else {
+		addnewvar("PATH", DEFAULT_PATH);
+	}
+
 	if (chansess->term != NULL) {
 		addnewvar("TERM", chansess->term);
 	}
