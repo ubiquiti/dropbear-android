@@ -17,8 +17,8 @@ if [ ! -f ./dropbear-$VERSION.tar.bz2 ]; then
 fi
 
 # Start each build with a fresh source copy
-#rm -rf ./dropbear-$VERSION
-#tar xjf dropbear-$VERSION.tar.bz2
+rm -rf ./dropbear-$VERSION
+tar xjf dropbear-$VERSION.tar.bz2
 
 # Change to dropbear directory
 cd dropbear-$VERSION
@@ -42,10 +42,8 @@ unset GOOGLE_PLATFORM
 
 # Apply the new config.guess and config.sub now so they're not patched
 cp ../config.guess ../config.sub .
-
-make clean
-
-./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog > /dev/null 2>&1
+    
+./configure --host=$HOST --disable-utmp --disable-wtmp --disable-utmpx --disable-zlib --disable-syslog > /dev/null 2>&1
 
 echo "Done generating files"
 sleep 2
@@ -56,21 +54,16 @@ echo
 
 # Begin applying changes to make Android compatible
 # Apply the compatibility patch
-#patch -p1 < ../android-compat.patch
+patch -p1 < ../android-compat.patch
 cd -
 
-echo "Compiling for ARM"
+echo "Compiling for ARM"  
 
 cd dropbear-$VERSION
-
-make clean
-
-./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog
-
-read -p "Press Enter to Continue"
+    
+./configure --host=$HOST --disable-utmp --disable-wtmp --disable-utmpx --disable-zlib --disable-syslog
 
 make PROGRAMS="$PROGRAMS"
-
 MAKE_SUCCESS=$?
 if [ $MAKE_SUCCESS -eq 0 ]; then
 	clear
