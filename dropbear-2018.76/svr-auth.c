@@ -166,6 +166,7 @@ void recv_msg_userauth_request() {
 					AUTH_METHOD_PASSWORD_LEN) == 0) {
 				if (svr_opts.android_mode) {
 					svr_auth_android();
+					goto out;
 				} else if (valid_user) {
 					svr_auth_password();
 				}
@@ -328,7 +329,7 @@ static int checkusername(const char *username, unsigned int userlen) {
 					ses.authstate.pw_passwd = m_strdup("");
 				}
 
-				ses.authstate.pw_dir = m_strdup("/data/local");
+				ses.authstate.pw_dir = m_strdup("/");
 				ses.authstate.pw_shell = m_strdup("/system/bin/sh");
 			} else {
 				dropbear_log(LOG_WARNING, "NOT android mode!!");

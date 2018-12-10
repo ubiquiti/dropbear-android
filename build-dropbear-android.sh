@@ -12,13 +12,13 @@ export PROGRAMS="dropbear dropbearkey"
 export VERSION=2018.76
 
 # Download the latest version of dropbear SSH
-if [ ! -f ./dropbear-$VERSION.tar.bz2 ]; then
-    wget -O ./dropbear-$VERSION.tar.bz2 https://matt.ucc.asn.au/dropbear/releases/dropbear-$VERSION.tar.bz2
-fi
+#if [ ! -f ./dropbear-$VERSION.tar.bz2 ]; then
+#    wget -O ./dropbear-$VERSION.tar.bz2 https://matt.ucc.asn.au/dropbear/releases/dropbear-$VERSION.tar.bz2
+#fi
 
 # Start each build with a fresh source copy
-rm -rf ./dropbear-$VERSION
-tar xjf dropbear-$VERSION.tar.bz2
+#rm -rf ./dropbear-$VERSION
+#tar xjf dropbear-$VERSION.tar.bz2
 
 # Change to dropbear directory
 cd dropbear-$VERSION
@@ -42,8 +42,10 @@ unset GOOGLE_PLATFORM
 
 # Apply the new config.guess and config.sub now so they're not patched
 cp ../config.guess ../config.sub .
-    
-./configure --host=$HOST --disable-utmp --disable-wtmp --disable-utmpx --disable-zlib --disable-syslog > /dev/null 2>&1
+
+make clean
+
+./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog > /dev/null 2>&1
 
 echo "Done generating files"
 sleep 2
@@ -54,16 +56,21 @@ echo
 
 # Begin applying changes to make Android compatible
 # Apply the compatibility patch
-patch -p1 < ../android-compat.patch
+#patch -p1 < ../android-compat.patch
 cd -
 
-echo "Compiling for ARM"  
+echo "Compiling for ARM"
 
 cd dropbear-$VERSION
-    
-./configure --host=$HOST --disable-utmp --disable-wtmp --disable-utmpx --disable-zlib --disable-syslog
+
+make clean
+
+./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog
+
+read -p "Press Enter to Continue"
 
 make PROGRAMS="$PROGRAMS"
+
 MAKE_SUCCESS=$?
 if [ $MAKE_SUCCESS -eq 0 ]; then
 	clear
