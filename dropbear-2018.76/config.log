@@ -45,93 +45,93 @@ PATH: /snap/bin
 ## ----------- ##
 
 configure:2329: checking for arm-linux-androideabi-gcc
-configure:2356: result: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot
+configure:2356: result: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot
 configure:2625: checking for C compiler version
-configure:2634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot --version >&5
+configure:2634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot --version >&5
 arm-linux-androideabi-gcc (GCC) 4.9 20150123 (prerelease)
 Copyright (C) 2014 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 configure:2645: $? = 0
-configure:2634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -v >&5
+configure:2634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -v >&5
 Using built-in specs.
-COLLECT_GCC=/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc
-COLLECT_LTO_WRAPPER=/home/geofferey/dropbear-android/android-r11c-toolchain/bin/../libexec/gcc/arm-linux-androideabi/4.9/lto-wrapper
+COLLECT_GCC=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc
+COLLECT_LTO_WRAPPER=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/../libexec/gcc/arm-linux-androideabi/4.9/lto-wrapper
 Target: arm-linux-androideabi
 Configured with: /usr/local/google/buildbot/src/android/gcc/toolchain/build/../gcc/gcc-4.9/configure --prefix=/tmp/002ff922da42f0f80603ab1715cd43d4 --target=arm-linux-androideabi --host=x86_64-linux-gnu --build=x86_64-linux-gnu --with-gnu-as --with-gnu-ld --enable-languages=c,c++ --with-gmp=/buildbot/tmp/build/toolchain/temp-install --with-mpfr=/buildbot/tmp/build/toolchain/temp-install --with-mpc=/buildbot/tmp/build/toolchain/temp-install --with-cloog=/buildbot/tmp/build/toolchain/temp-install --with-isl=/buildbot/tmp/build/toolchain/temp-install --with-ppl=/buildbot/tmp/build/toolchain/temp-install --disable-ppl-version-check --disable-cloog-version-check --disable-isl-version-check --enable-cloog-backend=isl --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --disable-libssp --enable-threads --disable-nls --disable-libmudflap --disable-libgomp --disable-libstdc__-v3 --disable-sjlj-exceptions --disable-shared --disable-tls --disable-libitm --with-float=soft --with-fpu=vfp --with-arch=armv5te --enable-target-optspace --enable-initfini-array --disable-nls --prefix=/tmp/002ff922da42f0f80603ab1715cd43d4 --with-sysroot=/tmp/002ff922da42f0f80603ab1715cd43d4/sysroot --with-binutils-version=2.25 --with-mpfr-version=3.1.1 --with-mpc-version=1.0.1 --with-gmp-version=5.0.5 --with-gcc-version=4.9 --with-gdb-version=none --with-gxx-include-dir=/tmp/002ff922da42f0f80603ab1715cd43d4/include/c++/4.9 --with-bugurl=http://source.android.com/source/report-bugs.html --enable-languages=c,c++ --disable-bootstrap --enable-plugins --enable-libgomp --enable-gnu-indirect-function --disable-libsanitizer --enable-gold --enable-threads --enable-eh-frame-hdr-for-static --enable-graphite=yes --with-isl-version=0.11.1 --with-cloog-version=0.18.0 --with-arch=armv5te --program-transform-name='s&^&arm-linux-androideabi-&' --enable-gold=default
 Thread model: posix
 gcc version 4.9 20150123 (prerelease) (GCC) 
 configure:2645: $? = 0
-configure:2634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -V >&5
+configure:2634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -V >&5
 arm-linux-androideabi-gcc: error: unrecognized command line option '-V'
 arm-linux-androideabi-gcc: fatal error: no input files
 compilation terminated.
 configure:2645: $? = 1
-configure:2634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -qversion >&5
+configure:2634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -qversion >&5
 arm-linux-androideabi-gcc: error: unrecognized command line option '-qversion'
 arm-linux-androideabi-gcc: fatal error: no input files
 compilation terminated.
 configure:2645: $? = 1
 configure:2665: checking whether the C compiler works
-configure:2687: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -g -O2 -pie -fPIE   conftest.c  >&5
+configure:2687: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -g -O2 -pie -fPIE   conftest.c  >&5
 configure:2691: $? = 0
 configure:2739: result: yes
 configure:2742: checking for C compiler default output file name
 configure:2744: result: a.out
 configure:2750: checking for suffix of executables
-configure:2757: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -g -O2 -pie -fPIE   conftest.c  >&5
+configure:2757: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -g -O2 -pie -fPIE   conftest.c  >&5
 configure:2761: $? = 0
 configure:2783: result: 
 configure:2805: checking whether we are cross compiling
-configure:2813: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -g -O2 -pie -fPIE   conftest.c  >&5
+configure:2813: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -g -O2 -pie -fPIE   conftest.c  >&5
 configure:2817: $? = 0
 configure:2824: ./conftest
 ./configure: line 2826: ./conftest: cannot execute binary file: Exec format error
 configure:2828: $? = 126
 configure:2843: result: yes
 configure:2848: checking for suffix of object files
-configure:2870: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -g -O2 -pie -fPIE  conftest.c >&5
+configure:2870: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -g -O2 -pie -fPIE  conftest.c >&5
 configure:2874: $? = 0
 configure:2895: result: o
 configure:2899: checking whether we are using the GNU C compiler
-configure:2918: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -g -O2 -pie -fPIE  conftest.c >&5
+configure:2918: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -g -O2 -pie -fPIE  conftest.c >&5
 configure:2918: $? = 0
 configure:2927: result: yes
-configure:2936: checking whether /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot accepts -g
-configure:2956: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -g  conftest.c >&5
+configure:2936: checking whether /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot accepts -g
+configure:2956: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -g  conftest.c >&5
 configure:2956: $? = 0
 configure:2997: result: yes
-configure:3014: checking for /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot option to accept ISO C89
-configure:3077: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot  -c -g -O2 -pie -fPIE  conftest.c >&5
+configure:3014: checking for /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot option to accept ISO C89
+configure:3077: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot  -c -g -O2 -pie -fPIE  conftest.c >&5
 configure:3077: $? = 0
 configure:3090: result: none needed
 configure:3120: No $CFLAGS set... using "-Os -W -Wall" for GCC
-configure:3125: Checking if compiler '/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot' supports -Wno-pointer-sign
-configure:3143: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign  conftest.c >&5
+configure:3125: Checking if compiler '/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot' supports -Wno-pointer-sign
+configure:3143: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign  conftest.c >&5
 configure:3143: $? = 0
 configure:3144: Setting -Wno-pointer-sign
-configure:3154: Checking if compiler '/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot' supports -fno-strict-overflow
-configure:3171: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow  conftest.c >&5
+configure:3154: Checking if compiler '/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot' supports -fno-strict-overflow
+configure:3171: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow  conftest.c >&5
 configure:3171: $? = 0
 configure:3172: Setting -fno-strict-overflow
 configure:3210: Checking for available hardened build flags:
-configure:3230: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE  conftest.c >&5
+configure:3230: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE  conftest.c >&5
 configure:3230: $? = 0
 configure:3231: Setting -fPIE
-configure:3255: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE   -Wl,-pie conftest.c  >&5
+configure:3255: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE   -Wl,-pie conftest.c  >&5
 configure:3255: $? = 0
 configure:3256: Setting -Wl,-pie
-configure:3304: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:3304: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:3304: $? = 0
 configure:3305: Setting -Wl,-z,now -Wl,-z,relro
-configure:3330: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong  conftest.c >&5
+configure:3330: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong  conftest.c >&5
 configure:3330: $? = 0
 configure:3331: Setting -fstack-protector-strong
-configure:3378: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:3378: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:3378: $? = 0
 configure:3379: Setting -D_FORTIFY_SOURCE=2
-configure:3405: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2 -mfunction-return=thunk  conftest.c >&5
+configure:3405: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2 -mfunction-return=thunk  conftest.c >&5
 arm-linux-androideabi-gcc: error: unrecognized command line option '-mfunction-return=thunk'
 configure:3405: $? = 1
 configure: failed program was:
@@ -152,7 +152,7 @@ configure: failed program was:
 |   return 0;
 | }
 configure:3409: Not setting -mfunction-return=thunk
-configure:3430: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2 -mindirect-branch=thunk  conftest.c >&5
+configure:3430: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2 -mindirect-branch=thunk  conftest.c >&5
 arm-linux-androideabi-gcc: error: unrecognized command line option '-mindirect-branch=thunk'
 configure:3430: $? = 1
 configure: failed program was:
@@ -199,9 +199,9 @@ configure:4199: checking for install
 configure:4215: found /usr/bin/install
 configure:4226: result: install
 configure:4254: checking how to run the C preprocessor
-configure:4285: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:4285: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:4285: $? = 0
-configure:4299: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:4299: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:9:28: fatal error: ac_nonexistent.h: No such file or directory
  #include <ac_nonexistent.h>
                             ^
@@ -217,10 +217,10 @@ configure: failed program was:
 | #define PACKAGE_URL ""
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:4324: result: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E
-configure:4344: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:4324: result: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E
+configure:4344: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:4344: $? = 0
-configure:4358: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:4358: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:9:28: fatal error: ac_nonexistent.h: No such file or directory
  #include <ac_nonexistent.h>
                             ^
@@ -241,47 +241,47 @@ configure:4445: result: /bin/grep
 configure:4450: checking for egrep
 configure:4512: result: /bin/grep -E
 configure:4517: checking for ANSI C header files
-configure:4537: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4537: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4537: $? = 0
 configure:4621: result: yes
 configure:4634: checking for sys/types.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4634: checking for sys/stat.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4634: checking for stdlib.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4634: checking for string.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4634: checking for memory.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4634: checking for strings.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4634: checking for inttypes.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4634: checking for stdint.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4634: checking for unistd.h
-configure:4634: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4634: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:4634: $? = 0
 configure:4634: result: yes
 configure:4646: checking whether __UCLIBC__ is declared
-configure:4646: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:4646: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:59:10: error: '__UCLIBC__' undeclared (first use in this function)
    (void) __UCLIBC__;
@@ -356,8 +356,8 @@ configure: failed program was:
 | }
 configure:4646: result: no
 configure:4656: checking for crypt
-configure:4656: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccQahmYe.o:conftest.c:function main: error: undefined reference to 'crypt'
+configure:4656: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccmZ2wzR.o:conftest.c:function main: error: undefined reference to 'crypt'
 collect2: error: ld returned 1 exit status
 configure:4656: $? = 1
 configure: failed program was:
@@ -419,9 +419,9 @@ configure: failed program was:
 | }
 configure:4656: result: no
 configure:4661: checking for crypt in -lcrypt
-configure:4686: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lcrypt   >&5
-/home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lcrypt
-/tmp/ccrrRHWk.o:conftest.c:function main: error: undefined reference to 'crypt'
+configure:4686: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lcrypt   >&5
+/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lcrypt
+/tmp/cc1eT1HU.o:conftest.c:function main: error: undefined reference to 'crypt'
 collect2: error: ld returned 1 exit status
 configure:4686: $? = 1
 configure: failed program was:
@@ -463,8 +463,8 @@ configure:4739: Disabling zlib
 configure:4950: Disabling PAM
 configure:5026: Using openpty if available
 configure:5028: checking for library containing openpty
-configure:5059: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cc3OGobn.o:conftest.c:function main: error: undefined reference to 'openpty'
+configure:5059: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccaLTO0Z.o:conftest.c:function main: error: undefined reference to 'openpty'
 collect2: error: ld returned 1 exit status
 configure:5059: $? = 1
 configure: failed program was:
@@ -503,9 +503,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:5059: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lutil   >&5
-/home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lutil
-/tmp/ccIk0CJs.o:conftest.c:function main: error: undefined reference to 'openpty'
+configure:5059: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lutil   >&5
+/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lutil
+/tmp/ccaJ80s2.o:conftest.c:function main: error: undefined reference to 'openpty'
 collect2: error: ld returned 1 exit status
 configure:5059: $? = 1
 configure: failed program was:
@@ -550,31 +550,31 @@ configure:5124: Not using shadow passwords
 configure:5166: checking for ANSI C header files
 configure:5270: result: yes
 configure:5278: checking for sys/wait.h that is POSIX.1 compatible
-configure:5304: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5304: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5304: $? = 0
 configure:5311: result: yes
 configure:5326: checking netinet/in.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking netinet/in.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for netinet/in.h
 configure:5326: result: yes
 configure:5326: checking netinet/tcp.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking netinet/tcp.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for netinet/tcp.h
 configure:5326: result: yes
 configure:5326: checking crypt.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c:58:19: fatal error: crypt.h: No such file or directory
  #include <crypt.h>
                    ^
@@ -641,7 +641,7 @@ configure: failed program was:
 | #include <crypt.h>
 configure:5326: result: no
 configure:5326: checking crypt.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:25:19: fatal error: crypt.h: No such file or directory
  #include <crypt.h>
                    ^
@@ -677,7 +677,7 @@ configure:5326: result: no
 configure:5326: checking for crypt.h
 configure:5326: result: no
 configure:5326: checking pty.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c:58:17: fatal error: pty.h: No such file or directory
  #include <pty.h>
                  ^
@@ -744,7 +744,7 @@ configure: failed program was:
 | #include <pty.h>
 configure:5326: result: no
 configure:5326: checking pty.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:25:17: fatal error: pty.h: No such file or directory
  #include <pty.h>
                  ^
@@ -780,7 +780,7 @@ configure:5326: result: no
 configure:5326: checking for pty.h
 configure:5326: result: no
 configure:5326: checking libutil.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c:58:21: fatal error: libutil.h: No such file or directory
  #include <libutil.h>
                      ^
@@ -847,7 +847,7 @@ configure: failed program was:
 | #include <libutil.h>
 configure:5326: result: no
 configure:5326: checking libutil.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:25:21: fatal error: libutil.h: No such file or directory
  #include <libutil.h>
                      ^
@@ -883,11 +883,11 @@ configure:5326: result: no
 configure:5326: checking for libutil.h
 configure:5326: result: no
 configure:5326: checking libgen.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking libgen.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for libgen.h
@@ -895,7 +895,7 @@ configure:5326: result: yes
 configure:5326: checking for inttypes.h
 configure:5326: result: yes
 configure:5326: checking stropts.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c:60:21: fatal error: stropts.h: No such file or directory
  #include <stropts.h>
                      ^
@@ -964,7 +964,7 @@ configure: failed program was:
 | #include <stropts.h>
 configure:5326: result: no
 configure:5326: checking stropts.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:27:21: fatal error: stropts.h: No such file or directory
  #include <stropts.h>
                      ^
@@ -1002,17 +1002,17 @@ configure:5326: result: no
 configure:5326: checking for stropts.h
 configure:5326: result: no
 configure:5326: checking utmp.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking utmp.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for utmp.h
 configure:5326: result: yes
 configure:5326: checking utmpx.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c:61:19: fatal error: utmpx.h: No such file or directory
  #include <utmpx.h>
                    ^
@@ -1082,7 +1082,7 @@ configure: failed program was:
 | #include <utmpx.h>
 configure:5326: result: no
 configure:5326: checking utmpx.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:28:19: fatal error: utmpx.h: No such file or directory
  #include <utmpx.h>
                    ^
@@ -1121,47 +1121,47 @@ configure:5326: result: no
 configure:5326: checking for utmpx.h
 configure:5326: result: no
 configure:5326: checking lastlog.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking lastlog.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for lastlog.h
 configure:5326: result: yes
 configure:5326: checking paths.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking paths.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for paths.h
 configure:5326: result: yes
 configure:5326: checking util.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking util.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for util.h
 configure:5326: result: yes
 configure:5326: checking netdb.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking netdb.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for netdb.h
 configure:5326: result: yes
 configure:5326: checking security/pam_appl.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c:65:31: fatal error: security/pam_appl.h: No such file or directory
  #include <security/pam_appl.h>
                                ^
@@ -1235,7 +1235,7 @@ configure: failed program was:
 | #include <security/pam_appl.h>
 configure:5326: result: no
 configure:5326: checking security/pam_appl.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:32:31: fatal error: security/pam_appl.h: No such file or directory
  #include <security/pam_appl.h>
                                ^
@@ -1278,7 +1278,7 @@ configure:5326: result: no
 configure:5326: checking for security/pam_appl.h
 configure:5326: result: no
 configure:5326: checking pam/pam_appl.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c:65:26: fatal error: pam/pam_appl.h: No such file or directory
  #include <pam/pam_appl.h>
                           ^
@@ -1352,7 +1352,7 @@ configure: failed program was:
 | #include <pam/pam_appl.h>
 configure:5326: result: no
 configure:5326: checking pam/pam_appl.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:32:26: fatal error: pam/pam_appl.h: No such file or directory
  #include <pam/pam_appl.h>
                           ^
@@ -1395,45 +1395,45 @@ configure:5326: result: no
 configure:5326: checking for pam/pam_appl.h
 configure:5326: result: no
 configure:5326: checking netinet/in_systm.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking netinet/in_systm.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for netinet/in_systm.h
 configure:5326: result: yes
 configure:5326: checking sys/uio.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking sys/uio.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for sys/uio.h
 configure:5326: result: yes
 configure:5326: checking linux/pkt_sched.h usability
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking linux/pkt_sched.h presence
-configure:5326: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:5326: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:5326: $? = 0
 configure:5326: result: yes
 configure:5326: checking for linux/pkt_sched.h
 configure:5326: result: yes
 configure:5338: checking for an ANSI C-conforming const
-configure:5404: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5404: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5404: $? = 0
 configure:5411: result: yes
 configure:5419: checking for uid_t in sys/types.h
 configure:5438: result: yes
 configure:5449: checking for mode_t
-configure:5449: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5449: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5449: $? = 0
-configure:5449: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5449: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:71:21: error: expected expression before ')' token
  if (sizeof ((mode_t)))
@@ -1517,9 +1517,9 @@ configure: failed program was:
 | }
 configure:5449: result: yes
 configure:5460: checking for pid_t
-configure:5460: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5460: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5460: $? = 0
-configure:5460: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5460: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:71:20: error: expected expression before ')' token
  if (sizeof ((pid_t)))
@@ -1603,9 +1603,9 @@ configure: failed program was:
 | }
 configure:5460: result: yes
 configure:5471: checking for size_t
-configure:5471: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5471: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5471: $? = 0
-configure:5471: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5471: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:71:21: error: expected expression before ')' token
  if (sizeof ((size_t)))
@@ -1689,13 +1689,13 @@ configure: failed program was:
 | }
 configure:5471: result: yes
 configure:5482: checking whether time.h and sys/time.h may both be included
-configure:5502: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5502: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5502: $? = 0
 configure:5509: result: yes
 configure:5518: checking for uint8_t
-configure:5518: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5518: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5518: $? = 0
-configure:5518: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5518: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:72:22: error: expected expression before ')' token
  if (sizeof ((uint8_t)))
@@ -1780,9 +1780,9 @@ configure: failed program was:
 | }
 configure:5518: result: yes
 configure:5527: checking for u_int8_t
-configure:5527: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5527: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5527: $? = 0
-configure:5527: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5527: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:73:23: error: expected expression before ')' token
  if (sizeof ((u_int8_t)))
@@ -1868,9 +1868,9 @@ configure: failed program was:
 | }
 configure:5527: result: yes
 configure:5536: checking for uint16_t
-configure:5536: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5536: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5536: $? = 0
-configure:5536: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5536: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:74:23: error: expected expression before ')' token
  if (sizeof ((uint16_t)))
@@ -1957,9 +1957,9 @@ configure: failed program was:
 | }
 configure:5536: result: yes
 configure:5545: checking for u_int16_t
-configure:5545: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5545: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5545: $? = 0
-configure:5545: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5545: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:75:24: error: expected expression before ')' token
  if (sizeof ((u_int16_t)))
@@ -2047,9 +2047,9 @@ configure: failed program was:
 | }
 configure:5545: result: yes
 configure:5554: checking for uint32_t
-configure:5554: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5554: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5554: $? = 0
-configure:5554: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5554: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:76:23: error: expected expression before ')' token
  if (sizeof ((uint32_t)))
@@ -2138,9 +2138,9 @@ configure: failed program was:
 | }
 configure:5554: result: yes
 configure:5563: checking for u_int32_t
-configure:5563: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5563: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5563: $? = 0
-configure:5563: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5563: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:77:24: error: expected expression before ')' token
  if (sizeof ((u_int32_t)))
@@ -2230,7 +2230,7 @@ configure: failed program was:
 | }
 configure:5563: result: yes
 configure:5573: checking for struct sockaddr_storage
-configure:5573: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5573: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:78:13: error: invalid application of 'sizeof' to incomplete type 'struct sockaddr_storage'
  if (sizeof (struct sockaddr_storage))
@@ -2321,9 +2321,9 @@ configure: failed program was:
 | }
 configure:5573: result: no
 configure:5583: checking for socklen_t
-configure:5583: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5583: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5583: $? = 0
-configure:5583: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5583: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:48:24: error: expected expression before ')' token
  if (sizeof ((socklen_t)))
@@ -2384,26 +2384,26 @@ configure: failed program was:
 | }
 configure:5583: result: yes
 configure:5648: checking for struct sockaddr_storage
-configure:5668: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5668: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5668: $? = 0
 configure:5677: result: yes
 configure:5684: checking for struct sockaddr_in6
-configure:5704: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5704: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5704: $? = 0
 configure:5713: result: yes
 configure:5721: checking for struct in6_addr
-configure:5741: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5741: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5741: $? = 0
 configure:5750: result: yes
 configure:5758: checking for struct addrinfo
-configure:5779: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5779: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5779: $? = 0
 configure:5788: result: yes
 configure:5800: checking for gai_strerror
-configure:5800: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:5800: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:5800: $? = 0
 configure:5800: result: yes
-configure:5827: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5827: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:60:5: warning: assignment discards 'const' qualifier from pointer target type
  str = gai_strerror(0);
@@ -2413,19 +2413,19 @@ conftest.c:58:7: warning: variable 'str' set but not used [-Wunused-but-set-vari
        ^
 configure:5827: $? = 0
 configure:5840: checking for struct utmp.ut_host
-configure:5840: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5840: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5840: $? = 0
 configure:5840: result: yes
 configure:5855: checking for struct utmp.ut_pid
-configure:5855: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5855: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5855: $? = 0
 configure:5855: result: yes
 configure:5870: checking for struct utmp.ut_type
-configure:5870: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5870: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5870: $? = 0
 configure:5870: result: yes
 configure:5885: checking for struct utmp.ut_tv
-configure:5885: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5885: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:63:5: error: used struct type value where scalar is required
  if (ac_aggr.ut_tv)
@@ -2502,23 +2502,23 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:5885: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5885: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5885: $? = 0
 configure:5885: result: yes
 configure:5900: checking for struct utmp.ut_id
-configure:5900: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5900: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5900: $? = 0
 configure:5900: result: yes
 configure:5915: checking for struct utmp.ut_addr
-configure:5915: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5915: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5915: $? = 0
 configure:5915: result: yes
 configure:5930: checking for struct utmp.ut_addr_v6
-configure:5930: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5930: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5930: $? = 0
 configure:5930: result: yes
 configure:5945: checking for struct utmp.ut_exit
-configure:5945: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5945: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:67:5: error: used struct type value where scalar is required
  if (ac_aggr.ut_exit)
@@ -2599,15 +2599,15 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:5945: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5945: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5945: $? = 0
 configure:5945: result: yes
 configure:5960: checking for struct utmp.ut_time
-configure:5960: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5960: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:5960: $? = 0
 configure:5960: result: yes
 configure:5977: checking for struct utmpx.ut_host
-configure:5977: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5977: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -2689,7 +2689,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:5977: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5977: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -2773,7 +2773,7 @@ configure: failed program was:
 | }
 configure:5977: result: no
 configure:5993: checking for struct utmpx.ut_syslen
-configure:5993: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5993: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -2855,7 +2855,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:5993: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:5993: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -2939,7 +2939,7 @@ configure: failed program was:
 | }
 configure:5993: result: no
 configure:6009: checking for struct utmpx.ut_type
-configure:6009: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6009: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3021,7 +3021,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6009: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6009: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3105,7 +3105,7 @@ configure: failed program was:
 | }
 configure:6009: result: no
 configure:6025: checking for struct utmpx.ut_id
-configure:6025: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6025: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3187,7 +3187,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6025: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6025: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3271,7 +3271,7 @@ configure: failed program was:
 | }
 configure:6025: result: no
 configure:6041: checking for struct utmpx.ut_addr
-configure:6041: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6041: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3353,7 +3353,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6041: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6041: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3437,7 +3437,7 @@ configure: failed program was:
 | }
 configure:6041: result: no
 configure:6057: checking for struct utmpx.ut_addr_v6
-configure:6057: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6057: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3519,7 +3519,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6057: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6057: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3603,7 +3603,7 @@ configure: failed program was:
 | }
 configure:6057: result: no
 configure:6073: checking for struct utmpx.ut_time
-configure:6073: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6073: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3685,7 +3685,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6073: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6073: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3769,7 +3769,7 @@ configure: failed program was:
 | }
 configure:6073: result: no
 configure:6089: checking for struct utmpx.ut_tv
-configure:6089: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6089: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3851,7 +3851,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6089: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6089: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:69:21: error: storage size of 'ac_aggr' isn't known
  static struct utmpx ac_aggr;
@@ -3935,20 +3935,20 @@ configure: failed program was:
 | }
 configure:6089: result: no
 configure:6107: checking for struct sockaddr_storage.ss_family
-configure:6107: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6107: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:6107: $? = 0
 configure:6107: result: yes
 configure:6125: checking for endutent
-configure:6125: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:6125: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:6125: $? = 0
 configure:6125: result: yes
 configure:6125: checking for getutent
-configure:6125: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:6125: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:6125: $? = 0
 configure:6125: result: yes
 configure:6125: checking for getutid
-configure:6125: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccKs31MH.o:conftest.c:function main: error: undefined reference to 'getutid'
+configure:6125: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccsAh8ih.o:conftest.c:function main: error: undefined reference to 'getutid'
 collect2: error: ld returned 1 exit status
 configure:6125: $? = 1
 configure: failed program was:
@@ -4052,8 +4052,8 @@ configure: failed program was:
 | }
 configure:6125: result: no
 configure:6125: checking for getutline
-configure:6125: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccmcuJbN.o:conftest.c:function main: error: undefined reference to 'getutline'
+configure:6125: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccNHILAp.o:conftest.c:function main: error: undefined reference to 'getutline'
 collect2: error: ld returned 1 exit status
 configure:6125: $? = 1
 configure: failed program was:
@@ -4157,20 +4157,20 @@ configure: failed program was:
 | }
 configure:6125: result: no
 configure:6125: checking for pututline
-configure:6125: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:6125: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:6125: $? = 0
 configure:6125: result: yes
 configure:6125: checking for setutent
-configure:6125: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:6125: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:6125: $? = 0
 configure:6125: result: yes
 configure:6136: checking for utmpname
-configure:6136: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:6136: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:6136: $? = 0
 configure:6136: result: yes
 configure:6148: checking for endutxent
-configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccN43ssV.o:conftest.c:function main: error: undefined reference to 'endutxent'
+configure:6148: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/cccgC47E.o:conftest.c:function main: error: undefined reference to 'endutxent'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4277,8 +4277,8 @@ configure: failed program was:
 | }
 configure:6148: result: no
 configure:6148: checking for getutxent
-configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cc6APgz0.o:conftest.c:function main: error: undefined reference to 'getutxent'
+configure:6148: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccy2zBVG.o:conftest.c:function main: error: undefined reference to 'getutxent'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4385,8 +4385,8 @@ configure: failed program was:
 | }
 configure:6148: result: no
 configure:6148: checking for getutxid
-configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccioqcJ1.o:conftest.c:function main: error: undefined reference to 'getutxid'
+configure:6148: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/cc2Sd4WJ.o:conftest.c:function main: error: undefined reference to 'getutxid'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4493,8 +4493,8 @@ configure: failed program was:
 | }
 configure:6148: result: no
 configure:6148: checking for getutxline
-configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccSzpyE8.o:conftest.c:function main: error: undefined reference to 'getutxline'
+configure:6148: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccfdQCfR.o:conftest.c:function main: error: undefined reference to 'getutxline'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4601,8 +4601,8 @@ configure: failed program was:
 | }
 configure:6148: result: no
 configure:6148: checking for pututxline
-configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccwBKWjf.o:conftest.c:function main: error: undefined reference to 'pututxline'
+configure:6148: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccm4A9nU.o:conftest.c:function main: error: undefined reference to 'pututxline'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4709,8 +4709,8 @@ configure: failed program was:
 | }
 configure:6148: result: no
 configure:6160: checking for setutxent
-configure:6160: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccBE8Gel.o:conftest.c:function main: error: undefined reference to 'setutxent'
+configure:6160: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccAUuxSZ.o:conftest.c:function main: error: undefined reference to 'setutxent'
 collect2: error: ld returned 1 exit status
 configure:6160: $? = 1
 configure: failed program was:
@@ -4817,8 +4817,8 @@ configure: failed program was:
 | }
 configure:6160: result: no
 configure:6160: checking for utmpxname
-configure:6160: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccihA9Ip.o:conftest.c:function main: error: undefined reference to 'utmpxname'
+configure:6160: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/cc2MG4C1.o:conftest.c:function main: error: undefined reference to 'utmpxname'
 collect2: error: ld returned 1 exit status
 configure:6160: $? = 1
 configure: failed program was:
@@ -4925,8 +4925,8 @@ configure: failed program was:
 | }
 configure:6160: result: no
 configure:6172: checking for logout
-configure:6172: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cchwlSzr.o:conftest.c:function main: error: undefined reference to 'logout'
+configure:6172: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/cc0StUw4.o:conftest.c:function main: error: undefined reference to 'logout'
 collect2: error: ld returned 1 exit status
 configure:6172: $? = 1
 configure: failed program was:
@@ -5033,8 +5033,8 @@ configure: failed program was:
 | }
 configure:6172: result: no
 configure:6172: checking for updwtmp
-configure:6172: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccmlt0xy.o:conftest.c:function main: error: undefined reference to 'updwtmp'
+configure:6172: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/cc0fW1K9.o:conftest.c:function main: error: undefined reference to 'updwtmp'
 collect2: error: ld returned 1 exit status
 configure:6172: $? = 1
 configure: failed program was:
@@ -5141,8 +5141,8 @@ configure: failed program was:
 | }
 configure:6172: result: no
 configure:6172: checking for logwtmp
-configure:6172: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cczBUTRA.o:conftest.c:function main: error: undefined reference to 'logwtmp'
+configure:6172: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccxmM34e.o:conftest.c:function main: error: undefined reference to 'logwtmp'
 collect2: error: ld returned 1 exit status
 configure:6172: $? = 1
 configure: failed program was:
@@ -5249,7 +5249,7 @@ configure: failed program was:
 | }
 configure:6172: result: no
 configure:6185: checking mach/mach_time.h usability
-configure:6185: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6185: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c:97:28: fatal error: mach/mach_time.h: No such file or directory
  #include <mach/mach_time.h>
                             ^
@@ -5355,7 +5355,7 @@ configure: failed program was:
 | #include <mach/mach_time.h>
 configure:6185: result: no
 configure:6185: checking mach/mach_time.h presence
-configure:6185: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:6185: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 conftest.c:64:28: fatal error: mach/mach_time.h: No such file or directory
  #include <mach/mach_time.h>
                             ^
@@ -5430,8 +5430,8 @@ configure:6185: result: no
 configure:6185: checking for mach/mach_time.h
 configure:6185: result: no
 configure:6197: checking for mach_absolute_time
-configure:6197: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccF6upnK.o:conftest.c:function main: error: undefined reference to 'mach_absolute_time'
+configure:6197: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/cc9z2M5e.o:conftest.c:function main: error: undefined reference to 'mach_absolute_time'
 collect2: error: ld returned 1 exit status
 configure:6197: $? = 1
 configure: failed program was:
@@ -5538,8 +5538,8 @@ configure: failed program was:
 | }
 configure:6197: result: no
 configure:6210: checking for explicit_bzero
-configure:6210: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccB0ik2P.o:conftest.c:function main: error: undefined reference to 'explicit_bzero'
+configure:6210: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccbqYX9h.o:conftest.c:function main: error: undefined reference to 'explicit_bzero'
 collect2: error: ld returned 1 exit status
 configure:6210: $? = 1
 configure: failed program was:
@@ -5646,8 +5646,8 @@ configure: failed program was:
 | }
 configure:6210: result: no
 configure:6210: checking for memset_s
-configure:6210: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccgCRLGR.o:conftest.c:function main: error: undefined reference to 'memset_s'
+configure:6210: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccioUyin.o:conftest.c:function main: error: undefined reference to 'memset_s'
 collect2: error: ld returned 1 exit status
 configure:6210: $? = 1
 configure: failed program was:
@@ -5754,9 +5754,9 @@ configure: failed program was:
 | }
 configure:6210: result: no
 configure:6318: checking for mp_exptmod in -ltommath
-configure:6343: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -ltommath   >&5
-/home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -ltommath
-/tmp/ccI5CMDU.o:conftest.c:function main: error: undefined reference to 'mp_exptmod'
+configure:6343: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -ltommath   >&5
+/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -ltommath
+/tmp/cc7iiccp.o:conftest.c:function main: error: undefined reference to 'mp_exptmod'
 collect2: error: ld returned 1 exit status
 configure:6343: $? = 1
 configure: failed program was:
@@ -5840,9 +5840,9 @@ configure: failed program was:
 | }
 configure:6352: result: no
 configure:6360: checking for register_cipher in -ltomcrypt
-configure:6385: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -ltomcrypt   >&5
-/home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -ltomcrypt
-/tmp/ccQLrXnO.o:conftest.c:function main: error: undefined reference to 'register_cipher'
+configure:6385: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -ltomcrypt   >&5
+/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -ltomcrypt
+/tmp/ccqszqbv.o:conftest.c:function main: error: undefined reference to 'register_cipher'
 collect2: error: ld returned 1 exit status
 configure:6385: $? = 1
 configure: failed program was:
@@ -5926,8 +5926,8 @@ configure: failed program was:
 | }
 configure:6394: result: no
 configure:6525: checking for library containing login
-configure:6556: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccbyu6GR.o:conftest.c:function main: error: undefined reference to 'login'
+configure:6556: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/cc7mglXv.o:conftest.c:function main: error: undefined reference to 'login'
 collect2: error: ld returned 1 exit status
 configure:6556: $? = 1
 configure: failed program was:
@@ -6016,9 +6016,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6556: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lutil   >&5
-/home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lutil
-/tmp/ccu8t6BW.o:conftest.c:function main: error: undefined reference to 'login'
+configure:6556: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lutil   >&5
+/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lutil
+/tmp/cceDTu6B.o:conftest.c:function main: error: undefined reference to 'login'
 collect2: error: ld returned 1 exit status
 configure:6556: $? = 1
 configure: failed program was:
@@ -6107,9 +6107,9 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:6556: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lbsd   >&5
-/home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lbsd
-/tmp/ccEMwv22.o:conftest.c:function main: error: undefined reference to 'login'
+configure:6556: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lbsd   >&5
+/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lbsd
+/tmp/ccqj300D.o:conftest.c:function main: error: undefined reference to 'login'
 collect2: error: ld returned 1 exit status
 configure:6556: $? = 1
 configure: failed program was:
@@ -6206,7 +6206,7 @@ configure:6586: result: no
 configure:6586: checking for logwtmp
 configure:6586: result: no
 configure:6598: checking if your system defines LASTLOG_FILE
-configure:6623: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6623: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:87:18: error: 'LASTLOG_FILE' undeclared (first use in this function)
   char *lastlog = LASTLOG_FILE;
@@ -6309,7 +6309,7 @@ configure: failed program was:
 | }
 configure:6628: result: no
 configure:6630: checking if your system defines _PATH_LASTLOG
-configure:6652: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6652: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:84:8: warning: unused variable 'lastlog' [-Wunused-variable]
   char *lastlog = _PATH_LASTLOG;
@@ -6317,7 +6317,7 @@ conftest.c:84:8: warning: unused variable 'lastlog' [-Wunused-variable]
 configure:6652: $? = 0
 configure:6653: result: yes
 configure:6690: checking if your system defines UTMP_FILE
-configure:6709: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6709: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:81:15: error: 'UTMP_FILE' undeclared (first use in this function)
   char *utmp = UTMP_FILE;
@@ -6414,7 +6414,7 @@ configure: failed program was:
 | }
 configure:6713: result: no
 configure:6740: checking if your system defines WTMP_FILE
-configure:6761: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6761: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:84:15: error: 'WTMP_FILE' undeclared (first use in this function)
   char *wtmp = WTMP_FILE;
@@ -6514,7 +6514,7 @@ configure: failed program was:
 | }
 configure:6765: result: no
 configure:6793: checking if your system defines UTMPX_FILE
-configure:6815: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6815: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:86:16: error: 'UTMPX_FILE' undeclared (first use in this function)
   char *utmpx = UTMPX_FILE;
@@ -6616,7 +6616,7 @@ configure: failed program was:
 | }
 configure:6819: result: no
 configure:6838: checking if your system defines WTMPX_FILE
-configure:6862: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6862: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:89:16: error: 'WTMPX_FILE' undeclared (first use in this function)
   char *wtmpx = WTMPX_FILE;
@@ -6720,37 +6720,37 @@ configure: failed program was:
 |   return 0;
 | }
 configure:6866: result: no
-configure:6887: checking whether /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot needs -traditional
+configure:6887: checking whether /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot needs -traditional
 configure:6921: result: no
 configure:6928: checking for working memcmp
 configure:6981: result: no
 configure:6993: checking sys/select.h usability
-configure:6993: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6993: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:6993: $? = 0
 configure:6993: result: yes
 configure:6993: checking sys/select.h presence
-configure:6993: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:6993: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:6993: $? = 0
 configure:6993: result: yes
 configure:6993: checking for sys/select.h
 configure:6993: result: yes
 configure:6993: checking sys/socket.h usability
-configure:6993: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:6993: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:6993: $? = 0
 configure:6993: result: yes
 configure:6993: checking sys/socket.h presence
-configure:6993: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E  conftest.c
+configure:6993: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E  conftest.c
 configure:6993: $? = 0
 configure:6993: result: yes
 configure:6993: checking for sys/socket.h
 configure:6993: result: yes
 configure:7003: checking types of arguments for select
-configure:7031: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
+configure:7031: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -c -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c >&5
 configure:7031: $? = 0
 configure:7042: result: int,fd_set *,struct timeval *
 configure:7068: checking for getpass
-configure:7068: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccGaLTZH.o:conftest.c:function main: error: undefined reference to 'getpass'
+configure:7068: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccJcSJsk.o:conftest.c:function main: error: undefined reference to 'getpass'
 collect2: error: ld returned 1 exit status
 configure:7068: $? = 1
 configure: failed program was:
@@ -6873,8 +6873,8 @@ configure: failed program was:
 | }
 configure:7068: result: no
 configure:7068: checking for getspnam
-configure:7068: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cceyRFoL.o:conftest.c:function main: error: undefined reference to 'getspnam'
+configure:7068: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/cctowOvm.o:conftest.c:function main: error: undefined reference to 'getspnam'
 collect2: error: ld returned 1 exit status
 configure:7068: $? = 1
 configure: failed program was:
@@ -6997,8 +6997,8 @@ configure: failed program was:
 | }
 configure:7068: result: no
 configure:7068: checking for getusershell
-configure:7068: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccdD3LdM.o:conftest.c:function main: error: undefined reference to 'getusershell'
+configure:7068: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccR0MP3g.o:conftest.c:function main: error: undefined reference to 'getusershell'
 collect2: error: ld returned 1 exit status
 configure:7068: $? = 1
 configure: failed program was:
@@ -7121,12 +7121,12 @@ configure: failed program was:
 | }
 configure:7068: result: no
 configure:7068: checking for putenv
-configure:7068: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7068: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7068: $? = 0
 configure:7068: result: yes
 configure:7080: checking for clearenv
-configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cc7CJ23X.o:conftest.c:function main: error: undefined reference to 'clearenv'
+configure:7080: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccaRGDas.o:conftest.c:function main: error: undefined reference to 'clearenv'
 collect2: error: ld returned 1 exit status
 configure:7080: $? = 1
 configure: failed program was:
@@ -7250,24 +7250,24 @@ configure: failed program was:
 | }
 configure:7080: result: no
 configure:7080: checking for strlcpy
-configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7080: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7080: $? = 0
 configure:7080: result: yes
 configure:7080: checking for strlcat
-configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7080: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7080: $? = 0
 configure:7080: result: yes
 configure:7080: checking for daemon
-configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7080: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7080: $? = 0
 configure:7080: result: yes
 configure:7080: checking for basename
-configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7080: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7080: $? = 0
 configure:7080: result: yes
 configure:7080: checking for _getpty
-configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccQUoDl6.o:conftest.c:function main: error: undefined reference to '_getpty'
+configure:7080: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+/tmp/ccsKNfiP.o:conftest.c:function main: error: undefined reference to '_getpty'
 collect2: error: ld returned 1 exit status
 configure:7080: $? = 1
 configure: failed program was:
@@ -7395,34 +7395,34 @@ configure: failed program was:
 | }
 configure:7080: result: no
 configure:7080: checking for getaddrinfo
-configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7080: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7080: $? = 0
 configure:7080: result: yes
 configure:7092: checking for freeaddrinfo
-configure:7092: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7092: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7092: $? = 0
 configure:7092: result: yes
 configure:7092: checking for getnameinfo
-configure:7092: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7092: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7092: $? = 0
 configure:7092: result: yes
 configure:7092: checking for fork
-configure:7092: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7092: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 conftest.c:111:6: warning: conflicting types for built-in function 'fork'
  char fork ();
       ^
 configure:7092: $? = 0
 configure:7092: result: yes
 configure:7092: checking for writev
-configure:7092: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7092: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7092: $? = 0
 configure:7092: result: yes
 configure:7092: checking for getgrouplist
-configure:7092: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7092: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7092: $? = 0
 configure:7092: result: yes
 configure:7102: checking for library containing basename
-configure:7133: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
+configure:7133: /home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
 configure:7133: $? = 0
 configure:7150: result: none required
 configure:7182: Not checking for /dev/ptc & /dev/pts since we're cross-compiling
@@ -7465,7 +7465,7 @@ ac_cv_build=x86_64-unknown-linux-gnu
 ac_cv_c_compiler_gnu=yes
 ac_cv_c_const=yes
 ac_cv_env_CC_set=set
-ac_cv_env_CC_value='/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot'
+ac_cv_env_CC_value='/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot'
 ac_cv_env_CFLAGS_set=set
 ac_cv_env_CFLAGS_value='-g -O2 -pie -fPIE'
 ac_cv_env_CPPFLAGS_set=
@@ -7585,8 +7585,8 @@ ac_cv_member_struct_utmpx_ut_type=no
 ac_cv_objext=o
 ac_cv_path_EGREP='/bin/grep -E'
 ac_cv_path_GREP=/bin/grep
-ac_cv_prog_CC='/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot'
-ac_cv_prog_CPP='/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E'
+ac_cv_prog_CC='/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot'
+ac_cv_prog_CPP='/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E'
 ac_cv_prog_ac_ct_AR=ar
 ac_cv_prog_ac_ct_INSTALL=install
 ac_cv_prog_ac_ct_RANLIB=ranlib
@@ -7616,9 +7616,9 @@ ac_cv_type_uint8_t=yes
 
 AR='ar'
 BUNDLED_LIBTOM='1'
-CC='/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot'
+CC='/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot'
 CFLAGS='-Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2'
-CPP='/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -E'
+CPP='/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot -E'
 CPPFLAGS=''
 CRYPTLIB=''
 DEFS='-DHAVE_CONFIG_H'
@@ -7629,7 +7629,7 @@ EGREP='/bin/grep -E'
 EXEEXT=''
 GREP='/bin/grep'
 INSTALL='install'
-LD='/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot'
+LD='/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot'
 LDFLAGS=' -Wl,-pie -Wl,-z,now -Wl,-z,relro'
 LIBOBJS=' ${LIBOBJDIR}memcmp$U.o'
 LIBS=''

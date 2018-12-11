@@ -77,7 +77,7 @@ mandir=${datarootdir}/man
 
 .DELETE_ON_ERROR:
 
-CC=/home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot
+CC=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-standalone-toolchain/sysroot
 AR=ar
 RANLIB=ranlib
 STRIP=strip

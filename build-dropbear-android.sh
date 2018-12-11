@@ -13,12 +13,14 @@ export PROGRAMS="dropbear dropbearkey dbclient dropbearconvert scp"
 # Which version of Dropbear to download for patching
 export VERSION=2018.76
 
-export TOOLCHAIN=$CWD/android-r11c-toolchain
+export TOOLCHAIN=$CWD/android-r11c-standalone-toolchain
 
 # Download the latest version of dropbear SSH
-#if [ ! -f ./dropbear-$VERSION.tar.bz2 ]; then
-#    wget -O ./dropbear-$VERSION.tar.bz2 https://matt.ucc.asn.au/dropbear/releases/dropbear-$VERSION.tar.bz2
-#fi
+if [ ! -d $CWD/android-r11c-standalone-toolchain ]; then
+    git clone https://github.com/Geofferey/android-r11c-standalone-toolchain.git
+fi
+
+echo ""
 
 # Start each build with a fresh source copy
 #rm -rf ./dropbear-$VERSION
