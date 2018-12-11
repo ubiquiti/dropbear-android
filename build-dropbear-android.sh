@@ -49,7 +49,7 @@ unset GOOGLE_PLATFORM
 
 make clean
 
-./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog #> /dev/null 2>&1
+./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog > /dev/null 2>&1
 
 echo "Done generating files"
 sleep 2
@@ -71,6 +71,8 @@ cd dropbear-$VERSION
 make clean
 
 ./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog
+
+echo ""
 
 read -p "Press Enter to Continue"
 
