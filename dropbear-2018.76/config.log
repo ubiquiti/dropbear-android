@@ -357,7 +357,7 @@ configure: failed program was:
 configure:4646: result: no
 configure:4656: checking for crypt
 configure:4656: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccRfvJJ3.o:conftest.c:function main: error: undefined reference to 'crypt'
+/tmp/ccQahmYe.o:conftest.c:function main: error: undefined reference to 'crypt'
 collect2: error: ld returned 1 exit status
 configure:4656: $? = 1
 configure: failed program was:
@@ -421,7 +421,7 @@ configure:4656: result: no
 configure:4661: checking for crypt in -lcrypt
 configure:4686: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lcrypt   >&5
 /home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lcrypt
-/tmp/ccGtO1n1.o:conftest.c:function main: error: undefined reference to 'crypt'
+/tmp/ccrrRHWk.o:conftest.c:function main: error: undefined reference to 'crypt'
 collect2: error: ld returned 1 exit status
 configure:4686: $? = 1
 configure: failed program was:
@@ -464,7 +464,7 @@ configure:4950: Disabling PAM
 configure:5026: Using openpty if available
 configure:5028: checking for library containing openpty
 configure:5059: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccUovrt4.o:conftest.c:function main: error: undefined reference to 'openpty'
+/tmp/cc3OGobn.o:conftest.c:function main: error: undefined reference to 'openpty'
 collect2: error: ld returned 1 exit status
 configure:5059: $? = 1
 configure: failed program was:
@@ -505,7 +505,7 @@ configure: failed program was:
 | }
 configure:5059: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lutil   >&5
 /home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lutil
-/tmp/ccbb5VL5.o:conftest.c:function main: error: undefined reference to 'openpty'
+/tmp/ccIk0CJs.o:conftest.c:function main: error: undefined reference to 'openpty'
 collect2: error: ld returned 1 exit status
 configure:5059: $? = 1
 configure: failed program was:
@@ -3948,7 +3948,7 @@ configure:6125: $? = 0
 configure:6125: result: yes
 configure:6125: checking for getutid
 configure:6125: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccW5Ohvy.o:conftest.c:function main: error: undefined reference to 'getutid'
+/tmp/ccKs31MH.o:conftest.c:function main: error: undefined reference to 'getutid'
 collect2: error: ld returned 1 exit status
 configure:6125: $? = 1
 configure: failed program was:
@@ -4053,7 +4053,7 @@ configure: failed program was:
 configure:6125: result: no
 configure:6125: checking for getutline
 configure:6125: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccTpKjVB.o:conftest.c:function main: error: undefined reference to 'getutline'
+/tmp/ccmcuJbN.o:conftest.c:function main: error: undefined reference to 'getutline'
 collect2: error: ld returned 1 exit status
 configure:6125: $? = 1
 configure: failed program was:
@@ -4170,7 +4170,7 @@ configure:6136: $? = 0
 configure:6136: result: yes
 configure:6148: checking for endutxent
 configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cconDJRF.o:conftest.c:function main: error: undefined reference to 'endutxent'
+/tmp/ccN43ssV.o:conftest.c:function main: error: undefined reference to 'endutxent'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4278,7 +4278,7 @@ configure: failed program was:
 configure:6148: result: no
 configure:6148: checking for getutxent
 configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cckGfq4K.o:conftest.c:function main: error: undefined reference to 'getutxent'
+/tmp/cc6APgz0.o:conftest.c:function main: error: undefined reference to 'getutxent'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4386,7 +4386,7 @@ configure: failed program was:
 configure:6148: result: no
 configure:6148: checking for getutxid
 configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cctcqIiN.o:conftest.c:function main: error: undefined reference to 'getutxid'
+/tmp/ccioqcJ1.o:conftest.c:function main: error: undefined reference to 'getutxid'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4494,7 +4494,7 @@ configure: failed program was:
 configure:6148: result: no
 configure:6148: checking for getutxline
 configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccqRaAJT.o:conftest.c:function main: error: undefined reference to 'getutxline'
+/tmp/ccSzpyE8.o:conftest.c:function main: error: undefined reference to 'getutxline'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4602,7 +4602,7 @@ configure: failed program was:
 configure:6148: result: no
 configure:6148: checking for pututxline
 configure:6148: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccPJRwnV.o:conftest.c:function main: error: undefined reference to 'pututxline'
+/tmp/ccwBKWjf.o:conftest.c:function main: error: undefined reference to 'pututxline'
 collect2: error: ld returned 1 exit status
 configure:6148: $? = 1
 configure: failed program was:
@@ -4710,7 +4710,7 @@ configure: failed program was:
 configure:6148: result: no
 configure:6160: checking for setutxent
 configure:6160: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccmqgeo2.o:conftest.c:function main: error: undefined reference to 'setutxent'
+/tmp/ccBE8Gel.o:conftest.c:function main: error: undefined reference to 'setutxent'
 collect2: error: ld returned 1 exit status
 configure:6160: $? = 1
 configure: failed program was:
@@ -4818,7 +4818,7 @@ configure: failed program was:
 configure:6160: result: no
 configure:6160: checking for utmpxname
 configure:6160: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/cc3DpGy8.o:conftest.c:function main: error: undefined reference to 'utmpxname'
+/tmp/ccihA9Ip.o:conftest.c:function main: error: undefined reference to 'utmpxname'
 collect2: error: ld returned 1 exit status
 configure:6160: $? = 1
 configure: failed program was:
@@ -4926,7 +4926,7 @@ configure: failed program was:
 configure:6160: result: no
 configure:6172: checking for logout
 configure:6172: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccogIDBa.o:conftest.c:function main: error: undefined reference to 'logout'
+/tmp/cchwlSzr.o:conftest.c:function main: error: undefined reference to 'logout'
 collect2: error: ld returned 1 exit status
 configure:6172: $? = 1
 configure: failed program was:
@@ -5034,7 +5034,7 @@ configure: failed program was:
 configure:6172: result: no
 configure:6172: checking for updwtmp
 configure:6172: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccreiq3g.o:conftest.c:function main: error: undefined reference to 'updwtmp'
+/tmp/ccmlt0xy.o:conftest.c:function main: error: undefined reference to 'updwtmp'
 collect2: error: ld returned 1 exit status
 configure:6172: $? = 1
 configure: failed program was:
@@ -5142,7 +5142,7 @@ configure: failed program was:
 configure:6172: result: no
 configure:6172: checking for logwtmp
 configure:6172: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccUR71Ei.o:conftest.c:function main: error: undefined reference to 'logwtmp'
+/tmp/cczBUTRA.o:conftest.c:function main: error: undefined reference to 'logwtmp'
 collect2: error: ld returned 1 exit status
 configure:6172: $? = 1
 configure: failed program was:
@@ -5431,7 +5431,7 @@ configure:6185: checking for mach/mach_time.h
 configure:6185: result: no
 configure:6197: checking for mach_absolute_time
 configure:6197: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccksBPcq.o:conftest.c:function main: error: undefined reference to 'mach_absolute_time'
+/tmp/ccF6upnK.o:conftest.c:function main: error: undefined reference to 'mach_absolute_time'
 collect2: error: ld returned 1 exit status
 configure:6197: $? = 1
 configure: failed program was:
@@ -5539,7 +5539,7 @@ configure: failed program was:
 configure:6197: result: no
 configure:6210: checking for explicit_bzero
 configure:6210: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccmrOP0u.o:conftest.c:function main: error: undefined reference to 'explicit_bzero'
+/tmp/ccB0ik2P.o:conftest.c:function main: error: undefined reference to 'explicit_bzero'
 collect2: error: ld returned 1 exit status
 configure:6210: $? = 1
 configure: failed program was:
@@ -5647,7 +5647,7 @@ configure: failed program was:
 configure:6210: result: no
 configure:6210: checking for memset_s
 configure:6210: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccKu6f3A.o:conftest.c:function main: error: undefined reference to 'memset_s'
+/tmp/ccgCRLGR.o:conftest.c:function main: error: undefined reference to 'memset_s'
 collect2: error: ld returned 1 exit status
 configure:6210: $? = 1
 configure: failed program was:
@@ -5756,7 +5756,7 @@ configure:6210: result: no
 configure:6318: checking for mp_exptmod in -ltommath
 configure:6343: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -ltommath   >&5
 /home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -ltommath
-/tmp/cc8WtZ8E.o:conftest.c:function main: error: undefined reference to 'mp_exptmod'
+/tmp/ccI5CMDU.o:conftest.c:function main: error: undefined reference to 'mp_exptmod'
 collect2: error: ld returned 1 exit status
 configure:6343: $? = 1
 configure: failed program was:
@@ -5842,7 +5842,7 @@ configure:6352: result: no
 configure:6360: checking for register_cipher in -ltomcrypt
 configure:6385: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -ltomcrypt   >&5
 /home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -ltomcrypt
-/tmp/ccj696EI.o:conftest.c:function main: error: undefined reference to 'register_cipher'
+/tmp/ccQLrXnO.o:conftest.c:function main: error: undefined reference to 'register_cipher'
 collect2: error: ld returned 1 exit status
 configure:6385: $? = 1
 configure: failed program was:
@@ -5927,7 +5927,7 @@ configure: failed program was:
 configure:6394: result: no
 configure:6525: checking for library containing login
 configure:6556: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccqvzCuC.o:conftest.c:function main: error: undefined reference to 'login'
+/tmp/ccbyu6GR.o:conftest.c:function main: error: undefined reference to 'login'
 collect2: error: ld returned 1 exit status
 configure:6556: $? = 1
 configure: failed program was:
@@ -6018,7 +6018,7 @@ configure: failed program was:
 | }
 configure:6556: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lutil   >&5
 /home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lutil
-/tmp/cc4GYfFF.o:conftest.c:function main: error: undefined reference to 'login'
+/tmp/ccu8t6BW.o:conftest.c:function main: error: undefined reference to 'login'
 collect2: error: ld returned 1 exit status
 configure:6556: $? = 1
 configure: failed program was:
@@ -6109,7 +6109,7 @@ configure: failed program was:
 | }
 configure:6556: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c -lbsd   >&5
 /home/geofferey/dropbear-android/android-r11c-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.9/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lbsd
-/tmp/ccEkeAqI.o:conftest.c:function main: error: undefined reference to 'login'
+/tmp/ccEMwv22.o:conftest.c:function main: error: undefined reference to 'login'
 collect2: error: ld returned 1 exit status
 configure:6556: $? = 1
 configure: failed program was:
@@ -6750,7 +6750,7 @@ configure:7031: $? = 0
 configure:7042: result: int,fd_set *,struct timeval *
 configure:7068: checking for getpass
 configure:7068: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccC24tDn.o:conftest.c:function main: error: undefined reference to 'getpass'
+/tmp/ccGaLTZH.o:conftest.c:function main: error: undefined reference to 'getpass'
 collect2: error: ld returned 1 exit status
 configure:7068: $? = 1
 configure: failed program was:
@@ -6874,7 +6874,7 @@ configure: failed program was:
 configure:7068: result: no
 configure:7068: checking for getspnam
 configure:7068: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccvky9ut.o:conftest.c:function main: error: undefined reference to 'getspnam'
+/tmp/cceyRFoL.o:conftest.c:function main: error: undefined reference to 'getspnam'
 collect2: error: ld returned 1 exit status
 configure:7068: $? = 1
 configure: failed program was:
@@ -6998,7 +6998,7 @@ configure: failed program was:
 configure:7068: result: no
 configure:7068: checking for getusershell
 configure:7068: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccTJ6rmw.o:conftest.c:function main: error: undefined reference to 'getusershell'
+/tmp/ccdD3LdM.o:conftest.c:function main: error: undefined reference to 'getusershell'
 collect2: error: ld returned 1 exit status
 configure:7068: $? = 1
 configure: failed program was:
@@ -7126,7 +7126,7 @@ configure:7068: $? = 0
 configure:7068: result: yes
 configure:7080: checking for clearenv
 configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccBgSp1G.o:conftest.c:function main: error: undefined reference to 'clearenv'
+/tmp/cc7CJ23X.o:conftest.c:function main: error: undefined reference to 'clearenv'
 collect2: error: ld returned 1 exit status
 configure:7080: $? = 1
 configure: failed program was:
@@ -7267,7 +7267,7 @@ configure:7080: $? = 0
 configure:7080: result: yes
 configure:7080: checking for _getpty
 configure:7080: /home/geofferey/dropbear-android/android-r11c-toolchain/bin/arm-linux-androideabi-gcc --sysroot=/home/geofferey/dropbear-android/android-r11c-toolchain/sysroot -o conftest -Os -W -Wall -Wno-pointer-sign -fno-strict-overflow -fPIE -fstack-protector-strong -D_FORTIFY_SOURCE=2   -Wl,-pie -Wl,-z,now -Wl,-z,relro conftest.c  >&5
-/tmp/ccLeeqZY.o:conftest.c:function main: error: undefined reference to '_getpty'
+/tmp/ccQUoDl6.o:conftest.c:function main: error: undefined reference to '_getpty'
 collect2: error: ld returned 1 exit status
 configure:7080: $? = 1
 configure: failed program was:
