@@ -1,7 +1,7 @@
 Android Dropbear
 =========
 
-A patch set and script to download and cross-compile Dropbear SSH server for use on Android with password authentication.
+A script & source to cross-compile Dropbear SSH server/client for use on Android with password authentication.
 As the 64-bit binaries don't seem to work reliably, this project is configured to compile 32-bit binaries
 using the Android NDK toolchain.
 
@@ -73,5 +73,9 @@ https://github.com/NHellFire/dropbear-android
 
 Thanks to jmfoy for the ```config.sub``` and ```config.guess``` files:  
 https://github.com/jfmoy/android-dropbear
+
+Thanks to wolfdude & serasihay @XDA for ```netbsd_getpass.c``` implementation 
+https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2015-67-t3142412/page2
+https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2016-73-t3351671
 
 Another thank you to the various other repositories out there whose various approches helped lead to this completed project.
