@@ -6,8 +6,6 @@
 *.bbg
 *.prof
 /autom4te.cache
-/config.log
-/config.status
 /dbclient
 /dropbear
 /dropbearconvert
@@ -15,8 +13,3 @@
 /dropbearmulti
 /scp
 /scp-progress
-Makefile
-config.h
-config.h.in
-configure
-default_options_guard.h
