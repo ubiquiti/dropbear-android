@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export CWD=$(pwd)
+
 set -e
 
 if [ -z ${TOOLCHAIN} ]; then echo "TOOLCHAIN must be set. See README.md for more information."; exit -1; fi
@@ -10,6 +12,8 @@ export TARGET=../target
 export PROGRAMS="dropbear dropbearkey dbclient dropbearconvert scp"
 # Which version of Dropbear to download for patching
 export VERSION=2018.76
+
+export TOOLCHAIN=$CWD/android-r11c-toolchain
 
 # Download the latest version of dropbear SSH
 #if [ ! -f ./dropbear-$VERSION.tar.bz2 ]; then
