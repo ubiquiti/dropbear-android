@@ -23,7 +23,7 @@ export VERSION=2018.76
 # Change to dropbear directory
 cd dropbear-$VERSION
 
-### START -- configure without modifications first to generate files 
+### START -- configure without modifications first to generate files
 #########################################################################################################################
 echo "Generating required files..."
 
@@ -37,13 +37,13 @@ export CC="$COMPILER --sysroot=$SYSROOT"
 # Android 5.0 Lollipop and greater require PIE. Default to this unless otherwise specified.
 if [ -z $DISABLE_PIE ]; then export CFLAGS="-g -O2 -pie -fPIE"; else echo "Disabling PIE compilation..."; fi
 sleep 5
-# Use the default platform target for pie binaries 
+# Use the default platform target for pie binaries
 unset GOOGLE_PLATFORM
 
 # Apply the new config.guess and config.sub now so they're not patched
 #cp ../config.guess ../config.sub .
 
-#make clean
+make clean
 
 ./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog #> /dev/null 2>&1
 
@@ -52,7 +52,7 @@ sleep 2
 echo
 echo
 #########################################################################################################################
-### END -- configure without modifications first to generate files 
+### END -- configure without modifications first to generate files
 
 # Begin applying changes to make Android compatible
 # Apply the compatibility patch
