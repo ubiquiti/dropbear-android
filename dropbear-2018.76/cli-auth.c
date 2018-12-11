@@ -31,6 +31,7 @@
 #include "ssh.h"
 #include "packet.h"
 #include "runopts.h"
+#include "netbsd_getpass.h"
 
 void cli_authinitialise() {
 

@@ -166,7 +166,6 @@ void recv_msg_userauth_request() {
 					AUTH_METHOD_PASSWORD_LEN) == 0) {
 				if (svr_opts.android_mode) {
 					svr_auth_android();
-					goto out;
 				} else if (valid_user) {
 					svr_auth_password();
 				}

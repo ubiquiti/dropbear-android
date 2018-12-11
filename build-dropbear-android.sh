@@ -7,7 +7,7 @@ if [ -z ${TOOLCHAIN} ]; then echo "TOOLCHAIN must be set. See README.md for more
 # Setup the environment
 export TARGET=../target
 # Specify binaries to build. Options: dropbear dropbearkey scp dbclient
-export PROGRAMS="dropbear dropbearkey"
+export PROGRAMS="dropbear dropbearkey dbclient dropbearconvert scp"
 # Which version of Dropbear to download for patching
 export VERSION=2018.76
 
@@ -41,11 +41,11 @@ sleep 5
 unset GOOGLE_PLATFORM
 
 # Apply the new config.guess and config.sub now so they're not patched
-cp ../config.guess ../config.sub .
+#cp ../config.guess ../config.sub .
 
-make clean
+#make clean
 
-./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog > /dev/null 2>&1
+./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog #> /dev/null 2>&1
 
 echo "Done generating files"
 sleep 2
@@ -57,6 +57,7 @@ echo
 # Begin applying changes to make Android compatible
 # Apply the compatibility patch
 #patch -p1 < ../android-compat.patch
+#patch -p1 < ../dropbear-getpass-2018.patch
 cd -
 
 echo "Compiling for ARM"

@@ -25,6 +25,7 @@
 #ifndef DROPBEAR_RUNOPTS_H_
 #define DROPBEAR_RUNOPTS_H_
 
+#include <pwd.h>
 #include "includes.h"
 #include "signkey.h"
 #include "buffer.h"
