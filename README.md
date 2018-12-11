@@ -66,16 +66,20 @@ The above command will run the Dropbear server with password authentication enab
 Credits
 ----
 Big thanks to mkj who has been maintaining Dropbear:  
-https://github.com/mkj/dropbear  
+https://github.com/mkj/dropbear
+
 
 Thanks to NHellfire who's work made the process of getting 2018.76 up and running much easier:  
 https://github.com/NHellFire/dropbear-android  
 
+
 Thanks to jmfoy for the ```config.sub``` and ```config.guess``` files:  
 https://github.com/jfmoy/android-dropbear
 
-Thanks to wolfdude & serasihay @XDA for ```netbsd_getpass.c``` implementation 
-https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2015-67-t3142412/page2
-https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2016-73-t3351671
+
+Thanks to wolfdude & serasihay @XDA for ```netbsd_getpass.c``` implementation:  
+https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2015-67-t3142412/page2  
+https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2016-73-t3351671  
+
 
 Another thank you to the various other repositories out there whose various approches helped lead to this completed project.
