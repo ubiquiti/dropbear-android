@@ -17,7 +17,7 @@ Building Dropbear for Android
 
 The process consists of just four parts:  
 1) Specify the version of Dropbear you'd like to download and crosscompile. Open build-android-dropbear.sh and change the value of ``VERSION`` at the top, which defaults to ``2018.76``  
-2) Build your standalone android toolchain.  
+2) Build your standalone android toolchain from ```android-ndk-r11c```  
 See the android developer site for more info: https://developer.android.com/ndk/guides/standalone_toolchain.html
 3) Export your toolchain's location:
 ```
