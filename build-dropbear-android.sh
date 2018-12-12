@@ -85,7 +85,11 @@ echo ""
 
 read -p "Press Enter to Continue"
 
-make PROGRAMS="$PROGRAMS"
+#make PROGRAMS="dropbear dropbearkey scp dbclient dropbearconvert"
+
+STATIC=1 MULTI=1 SCPPROGRESS=0 PROGRAMS="$PROGRAMS" make
+
+PROGRAMS="dropbearmulti"
 
 MAKE_SUCCESS=$?
 if [ $MAKE_SUCCESS -eq 0 ]; then
