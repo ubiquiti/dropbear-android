@@ -4,7 +4,10 @@ export CWD=$(pwd)
 
 set -e
 
-if [ -z ${TOOLCHAIN} ]; then echo "TOOLCHAIN must be set. See README.md for more information."; exit -1; fi
+if [ -z ${TOOLCHAIN} ]; then
+    echo "Setting TOOLCHAIN, you may set TOOLCHAIN manually by using:"
+    echo "export TOOLCHAIN=/path/to/tc"
+fi
 
 # Setup the environment
 export TARGET=../target
@@ -13,10 +16,13 @@ export PROGRAMS="dropbear dropbearkey dbclient dropbearconvert scp"
 # Which version of Dropbear to download for patching
 export VERSION=2018.76
 
-export TOOLCHAIN=$CWD/android-r11c-standalone-toolchain
-
+if [ -z ${TOOLCHAIN} ]; then
+    export TOOLCHAIN=$CWD/android-r11c-standalone-toolchain
+fi
 # Download the latest version of dropbear SSH
-if [ ! -d $CWD/android-r11c-standalone-toolchain ]; then
+if [ ${TOOLCHAIN} = $CWD/android-r11c-standalone-toolchain ] && [ ! -d $CWD/android-r11c-standalone-toolchain ]; then
+    echo ""
+    echo "Fetching r11c standalone toolchain..."
     git clone https://github.com/Geofferey/android-r11c-standalone-toolchain.git
 fi
 
