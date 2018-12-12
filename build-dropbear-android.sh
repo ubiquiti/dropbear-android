@@ -70,6 +70,7 @@ echo
 # Apply the compatibility patch
 #patch -p1 < ../android-compat.patch
 #patch -p1 < ../dropbear-getpass-2018.patch
+#patch -p1 < ../openpty.patch
 cd -
 
 echo "Compiling for ARM"

@@ -1,0 +1,63 @@
+diff -uprN dropbear-2018.76/sshpty.c dropbear-2018.76_mod/sshpty.c
+--- dropbear-2018.76/sshpty.c	2018-02-27 23:25:12.000000000 +0900
++++ dropbear-2018.76_mod/sshpty.c	2018-12-08 21:13:13.805137041 +0900
+@@ -22,6 +22,8 @@
+ #include "errno.h"
+ #include "sshpty.h"
+ 
++#define HAVE_OPENPTY
++
+ /* Pty allocated with _getpty gets broken if we do I_PUSH:es to it. */
+ #if defined(HAVE__GETPTY) || defined(HAVE_OPENPTY)
+ #undef HAVE_DEV_PTMX
+@@ -38,6 +40,50 @@
+ #define O_NOCTTY 0
+ #endif
+ 
++int
++openpty (int *amaster, int *aslave, char *name, struct termios *termp,
++		struct winsize *winp)
++{
++	int master, slave;
++	char *name_slave;
++
++	master = open("/dev/ptmx", O_RDWR | O_NONBLOCK);
++	if (master == -1) {
++		TRACE(("Fail to open master"))
++		return -1;
++	}
++
++	if (grantpt(master))
++		goto fail;
++
++	if (unlockpt(master))
++		goto fail;
++
++	name_slave = ptsname(master);
++	TRACE(("openpty: slave name %s", name_slave))
++	slave = open(name_slave, O_RDWR | O_NOCTTY);
++	if (slave == -1)
++		{
++			goto fail;
++		}
++
++	if(termp)
++		tcsetattr(slave, TCSAFLUSH, termp);
++	if (winp)
++		ioctl (slave, TIOCSWINSZ, winp);
++
++	*amaster = master;
++	*aslave = slave;
++	if (name != NULL)
++		strcpy(name, name_slave);
++
++	return 0;
++
++  fail:
++	close (master);
++	return -1;
++}
++
+ /*
+  * Allocates and opens a pty.  Returns 0 if no pty could be allocated, or
+  * nonzero if a pty was successfully allocated.  On success, open file

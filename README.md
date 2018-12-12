@@ -84,5 +84,7 @@ Thanks to wolfdude & serasihay @XDA for ```netbsd_getpass.c``` implementation:
 https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2015-67-t3142412/page2  
 https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2016-73-t3351671  
 
+Thanks to yoshinrt for ```openpty.patch``` fix:  
+https://github.com/yoshinrt/dropbear-android
 
 Another thank you to the various other repositories out there whose various approches helped lead to this completed project.

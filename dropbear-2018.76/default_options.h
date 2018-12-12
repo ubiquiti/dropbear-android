@@ -292,6 +292,6 @@ be overridden at runtime with -I. 0 disables idle timeouts */
 /* The default path. This will often get replaced by the shell */
 #define DEFAULT_PATH "/system/bin:/system/xbin:/sbin"
 
-#define USE_DEV_PTMX 1
+/*#define USE_DEV_PTMX 1*/
 
 #endif /* DROPBEAR_DEFAULT_OPTIONS_H_ */
