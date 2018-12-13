@@ -50,8 +50,8 @@ For instance, to change the port Dropbear runs on or to change the default locat
         a) to build multiple binaries ```export MULTI=1```  
         b) to build non static binaries ```export STATIC=0```  
         c) to select programs to output ```export PROGRAMS=```  
-	available programs ```dbclient dropbear dropbearconvert dropbearkey scp"  
-        d) to use another toolchain ```export TOOLCHAIN=/path/to/tc```    
+	available programs ```dbclient dropbear dropbearconvert dropbearkey scp```    
+        d) to use another toolchain ```export TOOLCHAIN=/path/to/tc```  
 
 Basic usage
 ----
