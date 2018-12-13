@@ -1,8 +1,8 @@
 Android Dropbear 2018.76
 =========
 
-A script & source to cross-compile Dropbear SSH server/client for use on Android with password authentication.
-As the 64-bit binaries don't seem to work reliably, this project is configured to compile 32-bit binaries
+A script & patch to cross-compile Dropbear SSH server/client for use on Android with password authentication.
+Since the 64-bit binaries don't seem to work reliably, this project is configured to compile a 32-bit binary
 using a standalone Android NDK toolchain.
 
 Generated binares will all be PIE (position indepedent executable) binaries as it is required on Android 5 (L/ollipop) and above.
@@ -45,7 +45,13 @@ Much of the project is pre-configured with sane defaults, but if you'd like to c
 	c) config.h  
 
 For instance, to change the port Dropbear runs on or to change the default location in which Dropbear tries to generate keys, edit ``default_options.h`` and modify the respective values.  
-  
+
+2) It is also possible to change behavior of build script by exporting vars before execution.  
+        a) ```export MULTI=``` 1 OR 0
+        b) ```export STATIC=``` 1 OR 0 
+        c) ```export PROGRAMS=``` ```dropbear dbclient dropbearconvert dropbearkey scp``` 
+        d) ```export TOOLCHAIN=```/path/to/tc
+
 Basic usage
 ----
 Dropbear for Android adds a few special flags to Dropbear:  
@@ -83,6 +89,7 @@ https://github.com/jfmoy/android-dropbear
 Thanks to wolfdude & serasihay @XDA for ```netbsd_getpass.c``` implementation:  
 https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2015-67-t3142412/page2  
 https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2016-73-t3351671  
+
 
 Thanks to yoshinrt for ```openpty.patch``` fix:  
 https://github.com/yoshinrt/dropbear-android
