@@ -30,7 +30,9 @@ if [ -z ${PROGRAMS} ]; then
 fi
 
 # Which version of Dropbear to download for patching
-export VERSION=2018.76
+if [ -z ${VERSION} ]; then
+    export VERSION=2018.76
+fi
 
 #Download the dropbear source if not found
 if [ ! -f ./dropbear-$VERSION.tar.bz2 ]; then
@@ -91,7 +93,7 @@ echo
 # Begin applying changes to make Android compatible
 
 # Apply the compatibility patch
-patch -p1 < ../dropbear-2018.76-android.patch
+patch -p1 < ../dropbear-$VERSION-android.patch
 
 cd -
 
