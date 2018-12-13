@@ -47,10 +47,10 @@ Much of the project is pre-configured with sane defaults, but if you'd like to c
 For instance, to change the port Dropbear runs on or to change the default location in which Dropbear tries to generate keys, edit ``default_options.h`` and modify the respective values.  
 
 2) It is also possible to change behavior of build script by exporting vars before execution.  
-        a) ```export MULTI=``` 1 OR 0
-        b) ```export STATIC=``` 1 OR 0 
-        c) ```export PROGRAMS=``` ```dropbear dbclient dropbearconvert dropbearkey scp``` 
-        d) ```export TOOLCHAIN=```/path/to/tc
+        a) ```export MULTI=``` 1 OR 0  
+        b) ```export STATIC=``` 1 OR 0  
+        c) ```export PROGRAMS=``` ```dropbear dbclient dropbearconvert dropbearkey scp```   
+        d) ```export TOOLCHAIN=```/path/to/tc  
 
 Basic usage
 ----
