@@ -17,7 +17,7 @@ if [ -z ${MULTI} ]; then
     export MULTI=1
 
 elif [ ${MULTI} = 1 ]; then
-    export MULTI = 0
+    export MULTI=0
 
 fi
 
@@ -103,7 +103,16 @@ cd dropbear-$VERSION
 
 echo ""
 
-read -p "Press Enter to Continue"
+echo "Ignore warnings about crypt() & getpass()"
+
+echo ""
+
+echo "Nows your chance!"
+echo "Make any changes to source then:"
+
+echo ""
+
+read -p "Enter to Continue"
 
 #make PROGRAMS="dropbear dropbearkey scp dbclient dropbearconvert"
 
