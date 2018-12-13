@@ -15,6 +15,10 @@ fi
 
 if [ -z ${MULTI} ]; then
     export MULTI=1
+
+elif [ ${MULTI} = 1 ]; then
+    export MULTI = 0
+
 fi
 
 # Setup the environment

@@ -2,10 +2,10 @@ Android Dropbear 2018.76
 =========
 
 A script & patch to cross-compile Dropbear SSH server/client for use on Android with password authentication.
-Since the 64-bit binaries don't seem to work reliably, this project is configured to compile a 32-bit binary
-using a standalone Android NDK toolchain.
+Since the 64-bit binaries don't seem to work reliably, this project is configured to compile a single muti-purpose 32-bit binary
+using a standalone Android ```r11c``` NDK toolchain.
 
-Generated binares will all be PIE (position indepedent executable) binaries as it is required on Android 5 (L/ollipop) and above.
+Generated binary will be PIE (position indepedent executable) as required on Android 5 (L/ollipop) and above.
 
 If building for android < 4.1 then before building, issue:
 ```
@@ -29,10 +29,10 @@ cd android-dropbear
 
 3) Run the build script:  
 ```
-./build-dropbear-android.sh
+./build.sh
 ```
 
-Generated binaries will be outputted to ``{android dropbear repo directory}/target/arm``
+Generated binary will be outputted to ``{android dropbear repo directory}/target/arm/dropbearmulti``
 
 
 Customizations
@@ -47,10 +47,11 @@ Much of the project is pre-configured with sane defaults, but if you'd like to c
 For instance, to change the port Dropbear runs on or to change the default location in which Dropbear tries to generate keys, edit ``default_options.h`` and modify the respective values.  
 
 2) It is also possible to change behavior of build script by exporting vars before execution.  
-        a) ```export MULTI=``` 1 OR 0  
-        b) ```export STATIC=``` 1 OR 0  
-        c) ```export PROGRAMS=``` ```dropbear dbclient dropbearconvert dropbearkey scp```   
-        d) ```export TOOLCHAIN=```/path/to/tc  
+        a) to build multiple binaries ```export MULTI=1```  
+        b) to build non static binaries ```export STATIC=0```  
+        c) to select programs to output ```export PROGRAMS=```  
+	available programs ```dbclient dropbear dropbearconvert dropbearkey scp"  
+        d) to use another toolchain ```export TOOLCHAIN=/path/to/tc```    
 
 Basic usage
 ----
@@ -72,7 +73,7 @@ The above command will run the Dropbear server with password authentication enab
 ./dropbear --help
 ````
 
-Credits
+Contributions
 ----
 Big thanks to mkj who has been maintaining Dropbear:  
 https://github.com/mkj/dropbear
@@ -94,4 +95,4 @@ https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2
 Thanks to yoshinrt for ```openpty.patch``` fix:  
 https://github.com/yoshinrt/dropbear-android
 
-Another thank you to the various other repositories out there whose various approches helped lead to this completed project.
+Another thank you to the various repositories out there whose contributions helped lead to the completion of this project.
