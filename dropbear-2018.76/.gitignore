@@ -6,6 +6,7 @@
 *.bbg
 *.prof
 *.log
+*.status
 /autom4te.cache
 /dbclient
 /dropbear

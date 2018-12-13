@@ -9,6 +9,14 @@ if [ -z ${TOOLCHAIN} ]; then
     echo "export TOOLCHAIN=/path/to/tc"
 fi
 
+if [ -z ${STATIC} ]; then
+   export STATIC=1
+fi
+
+if [ -z ${MULTI} ]; then
+    export MULTI=1
+fi
+
 # Setup the environment
 export TARGET=../target
 # Specify binaries to build. Options: dropbear dropbearkey scp dbclient
@@ -87,9 +95,11 @@ read -p "Press Enter to Continue"
 
 #make PROGRAMS="dropbear dropbearkey scp dbclient dropbearconvert"
 
-STATIC=1 MULTI=1 SCPPROGRESS=0 PROGRAMS="$PROGRAMS" make
+STATIC="$STATIC" MULTI="$MULTI" SCPPROGRESS=0 PROGRAMS="$PROGRAMS" make
 
-PROGRAMS="dropbearmulti"
+if [ ${MULTI} = 1 ]; then
+    PROGRAMS="dropbearmulti"
+fi
 
 MAKE_SUCCESS=$?
 if [ $MAKE_SUCCESS -eq 0 ]; then
