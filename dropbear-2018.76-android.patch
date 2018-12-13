@@ -38,9 +38,17 @@ diff -ruN dropbear-2018.76/default_options.h MOD-dropbear-2018.76/default_option
  
  /* Set NON_INETD_MODE if you require daemon functionality (ie Dropbear listens
 diff -ruN dropbear-2018.76/runopts.h MOD-dropbear-2018.76/runopts.h
---- dropbear-2018.76/runopts.h	2018-02-27 07:25:12.000000000 -0700
-+++ MOD-dropbear-2018.76/runopts.h	2018-04-12 16:05:49.864914000 -0600
-@@ -123,6 +123,13 @@
+--- dropbear-2018.76/runopts.h	2018-02-27 06:25:12.000000000 -0800
++++ MOD-dropbear-2018.76/runopts.h	2018-12-11 01:10:20.932230000 -0800
+@@ -25,6 +25,7 @@
+ #ifndef DROPBEAR_RUNOPTS_H_
+ #define DROPBEAR_RUNOPTS_H_
+ 
++#include <pwd.h>
+ #include "includes.h"
+ #include "signkey.h"
+ #include "buffer.h"
+@@ -123,6 +124,13 @@
  	buffer * banner;
  	char * pidfile;
  
@@ -605,6 +613,7 @@ diff -ruN dropbear-2018.76/svr-runopts.c MOD-dropbear-2018.76/svr-runopts.c
  		if (nextisport) {
  			addportandaddress(&argv[i][j]);
  			nextisport = 0;
+
 diff -ruN dropbear-2018.76/sysoptions.h MOD-dropbear-2018.76/sysoptions.h
 --- dropbear-2018.76/sysoptions.h	2018-02-27 07:25:12.000000000 -0700
 +++ MOD-dropbear-2018.76/sysoptions.h	2018-04-12 15:22:33.624601000 -0600
@@ -621,3 +630,219 @@ diff -ruN dropbear-2018.76/sysoptions.h MOD-dropbear-2018.76/sysoptions.h
  
  #if !(DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH || DROPBEAR_SVR_PUBKEY_AUTH)
  	#error "At least one server authentication type must be enabled. DROPBEAR_SVR_PUBKEY_AUTH and DROPBEAR_SVR_PASSWORD_AUTH are recommended."
+
+diff -uprN dropbear-2018.76/netbsd_getpass.c dropbear-2018.76-android/netbsd_getpass.c
+--- dropbear-2018.76/netbsd_getpass.c	1970-01-01 01:00:00.000000000 +0100
++++ dropbear-2018.76-android/netbsd_getpass.c	2015-07-01 08:34:12.000000000 +0200
+@@ -0,0 +1,114 @@
++/*	$NetBSD: getpass.c,v 1.15 2003/08/07 16:42:50 agc Exp $	*/
++
++/*
++ * Copyright (c) 1988, 1993
++ *	The Regents of the University of California.  All rights reserved.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 3. Neither the name of the University nor the names of its contributors
++ *    may be used to endorse or promote products derived from this software
++ *    without specific prior written permission.
++ *
++ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++
++#if 0
++#include <sys/cdefs.h>
++#if defined(LIBC_SCCS) && !defined(lint)
++#if 0
++static char sccsid[] = "@(#)getpass.c	8.1 (Berkeley) 6/4/93";
++#else
++__RCSID("$NetBSD: getpass.c,v 1.15 2003/08/07 16:42:50 agc Exp $");
++#endif
++#endif /* LIBC_SCCS and not lint */
++
++#include "namespace.h"
++#endif
++
++#include <assert.h>
++#include <paths.h>
++#include <pwd.h>
++#include <signal.h>
++#include <stdio.h>
++#include <termios.h>
++#include <unistd.h>
++
++#if 0
++#ifdef __weak_alias
++__weak_alias(getpass,_getpass)
++#endif
++#endif
++
++char *
++getpass(prompt)
++	const char *prompt;
++{
++	struct termios term;
++	int ch;
++	char *p;
++	FILE *fp, *outfp;
++	int echo;
++	static char buf[_PASSWORD_LEN + 1];
++	sigset_t oset, nset;
++
++#if 0
++	_DIAGASSERT(prompt != NULL);
++#endif
++
++	/*
++	 * read and write to /dev/tty if possible; else read from
++	 * stdin and write to stderr.
++	 */
++	if ((outfp = fp = fopen(_PATH_TTY, "w+")) == NULL) {
++		outfp = stderr;
++		fp = stdin;
++	}
++
++	/*
++	 * note - blocking signals isn't necessarily the
++	 * right thing, but we leave it for now.
++	 */
++	sigemptyset(&nset);
++	sigaddset(&nset, SIGINT);
++	sigaddset(&nset, SIGTSTP);
++	(void)sigprocmask(SIG_BLOCK, &nset, &oset);
++
++	(void)tcgetattr(fileno(fp), &term);
++	if ((echo = (term.c_lflag & ECHO)) != 0) {
++		term.c_lflag &= ~ECHO;
++		(void)tcsetattr(fileno(fp), TCSAFLUSH /*|TCSASOFT*/, &term);
++	}
++	if (prompt != NULL)
++		(void)fputs(prompt, outfp);
++	rewind(outfp);			/* implied flush */
++	for (p = buf; (ch = getc(fp)) != EOF && ch != '\n';)
++		if (p < buf + _PASSWORD_LEN)
++			*p++ = ch;
++	*p = '\0';
++	(void)write(fileno(outfp), "\n", 1);
++	if (echo) {
++		term.c_lflag |= ECHO;
++		(void)tcsetattr(fileno(fp), TCSAFLUSH/*|TCSASOFT*/, &term);
++	}
++	(void)sigprocmask(SIG_SETMASK, &oset, NULL);
++	if (fp != stdin)
++		(void)fclose(fp);
++	return(buf);
++}
+
+diff -uprN dropbear-2018.76/netbsd_getpass.h dropbear-2018.76-android/netbsd_getpass.h
+--- dropbear-2018.76/netbsd_getpass.h	1970-01-01 01:00:00.000000000 +0100
++++ dropbear-2018.76-android/netbsd_getpass.h	2015-07-01 08:46:00.000000000 +0200
+@@ -0,0 +1,4 @@
++#ifndef __GETPASS_H__
++#define __GETPASS_H__
++extern char *getpass (const char *prompt);
++#endif
+
+diff -ruN dropbear-2018.76/cli-auth.c MOD-dropbear-2018.76/cli-auth.c
+--- dropbear-2018.76/cli-auth.c	2018-02-27 06:25:10.000000000 -0800
++++ MOD-dropbear-2018.76/cli-auth.c	2018-12-11 02:22:23.543648000 -0800
+@@ -31,6 +31,7 @@
+ #include "ssh.h"
+ #include "packet.h"
+ #include "runopts.h"
++#include "netbsd_getpass.h"
+ 
+ void cli_authinitialise() {
+
+diff -ruN dropbear-2018.76/Makefile.in MOD-dropbear-2018.76/Makefile.in
+--- dropbear-2018.76/Makefile.in	2018-02-27 06:25:10.000000000 -0800
++++ MOD-dropbear-2018.76/Makefile.in	2018-12-11 01:09:15.025765000 -0800
+@@ -46,7 +46,7 @@
+ CLIOBJS=cli-main.o cli-auth.o cli-authpasswd.o cli-kex.o \
+ 		cli-session.o cli-runopts.o cli-chansession.o \
+ 		cli-authpubkey.o cli-tcpfwd.o cli-channel.o cli-authinteract.o \
+-		cli-agentfwd.o 
++		cli-agentfwd.o netbsd_getpass.o
+ 
+ CLISVROBJS=common-session.o packet.o common-algo.o common-kex.o \
+ 			common-channel.o common-chansession.o termcodes.o loginrec.o \
+
+diff -uprN dropbear-2018.76/sshpty.c dropbear-2018.76_mod/sshpty.c
+--- dropbear-2018.76/sshpty.c	2018-02-27 23:25:12.000000000 +0900
++++ dropbear-2018.76_mod/sshpty.c	2018-12-08 21:13:13.805137041 +0900
+@@ -22,6 +22,8 @@
+ #include "errno.h"
+ #include "sshpty.h"
+ 
++#define HAVE_OPENPTY
++
+ /* Pty allocated with _getpty gets broken if we do I_PUSH:es to it. */
+ #if defined(HAVE__GETPTY) || defined(HAVE_OPENPTY)
+ #undef HAVE_DEV_PTMX
+@@ -38,6 +40,50 @@
+ #define O_NOCTTY 0
+ #endif
+ 
++int
++openpty (int *amaster, int *aslave, char *name, struct termios *termp,
++		struct winsize *winp)
++{
++	int master, slave;
++	char *name_slave;
++
++	master = open("/dev/ptmx", O_RDWR | O_NONBLOCK);
++	if (master == -1) {
++		TRACE(("Fail to open master"))
++		return -1;
++	}
++
++	if (grantpt(master))
++		goto fail;
++
++	if (unlockpt(master))
++		goto fail;
++
++	name_slave = ptsname(master);
++	TRACE(("openpty: slave name %s", name_slave))
++	slave = open(name_slave, O_RDWR | O_NOCTTY);
++	if (slave == -1)
++		{
++			goto fail;
++		}
++
++	if(termp)
++		tcsetattr(slave, TCSAFLUSH, termp);
++	if (winp)
++		ioctl (slave, TIOCSWINSZ, winp);
++
++	*amaster = master;
++	*aslave = slave;
++	if (name != NULL)
++		strcpy(name, name_slave);
++
++	return 0;
++
++  fail:
++	close (master);
++	return -1;
++}
++
+ /*
+  * Allocates and opens a pty.  Returns 0 if no pty could be allocated, or
+  * nonzero if a pty was successfully allocated.  On success, open file
