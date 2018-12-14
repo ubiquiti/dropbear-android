@@ -23,6 +23,10 @@ elif [ ${MULTI} = 1 ]; then
 
 fi
 
+if [ ${INTERACTIVE} ]; then
+    export INTERACTIVE=1
+fi
+
 # Setup the environment
 export TARGET=../target
 
@@ -118,9 +122,9 @@ echo "Make any changes to source then"
 
 echo ""
 
-read -p "Press Return to Continue..."
-
-#make PROGRAMS="dropbear dropbearkey scp dbclient dropbearconvert"
+if [ ${INTERACTIVE} = 1 ]; then
+    read -p "Press Return to Continue..."
+fi
 
 STATIC="$STATIC" MULTI="$MULTI" SCPPROGRESS=0 PROGRAMS="$PROGRAMS" make
 

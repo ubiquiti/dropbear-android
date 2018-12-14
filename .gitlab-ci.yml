@@ -1,0 +1,28 @@
+# http://doc.gitlab.com/ce/ci/yaml/README.html
+# https://hub.docker.com/_/debian/
+# http://releases.linaro.org/components/toolchain/binaries/
+
+image: debian:latest
+
+variables:
+  TERM: xterm
+  PUBLIC: public
+  INTERACTIVE: 0
+ 
+before_script:
+  - apt-get --quiet update --yes
+  - apt-get --quiet install --yes wget xz-utils autoconf make binutils build-essential git
+stages:
+  - build
+
+pages:
+  stage: build
+  only:
+    - release
+  script:
+    - ./build.sh
+    - mkdir -p "${PUBLIC}"
+    - mv -v target/arm/dropbearmulti "${PUBLIC}/"
+  artifacts:
+    paths:
+      - ${PUBLIC}
