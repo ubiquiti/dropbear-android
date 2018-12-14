@@ -23,7 +23,7 @@ elif [ ${MULTI} = 1 ]; then
 
 fi
 
-if [ ${INTERACTIVE} ]; then
+if [ -z ${INTERACTIVE} ]; then
     export INTERACTIVE=1
 fi
 

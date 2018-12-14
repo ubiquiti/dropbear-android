@@ -18,7 +18,7 @@ stages:
 pages:
   stage: build
   only:
-    - release
+    - master
   script:
     - ./build.sh
     - mkdir -p "${PUBLIC}"
