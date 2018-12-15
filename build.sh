@@ -43,6 +43,19 @@ if [ -z ${VERSION} ]; then
     export VERSION=2018.76
 fi
 
+# Set the clean variable if not set and src is non existent
+if [ -z ${CLEAN} ] && [ ! -d ${CWD}/dropbear-${VERSION} ]; then
+    export CLEAN=1
+
+elif [ -z ${CLEAN} ] && [ -d ${CWD}/dropbear-${VERSION} ]; then
+    export CLEAN=0
+
+fi
+
+if [ ${CLEAN} = 0 ] && [ -z ${MAKE_CLEAN} ]; then
+    export MAKE_CLEAN=1
+fi
+
 #Download the dropbear source if not found
 if [ ! -f ./dropbear-$VERSION.tar.bz2 ]; then
     wget -O ./dropbear-$VERSION.tar.bz2 https://matt.ucc.asn.au/dropbear/releases/dropbear-$VERSION.tar.bz2
@@ -60,9 +73,11 @@ if [ ${TOOLCHAIN} = $CWD/android-r11c-standalone-toolchain ] && [ ! -d $CWD/andr
     git clone https://github.com/Geofferey/android-r11c-standalone-toolchain.git
 fi
 
-# Start each build with a fresh source copy
-rm -rf ./dropbear-$VERSION
-tar xjf dropbear-$VERSION.tar.bz2
+# Start each build with a fresh source copy it $CLEAN=1
+if [ ${CLEAN} = 1 ]; then
+    rm -rf ./dropbear-$VERSION
+    tar xjf dropbear-$VERSION.tar.bz2
+fi
 
 # Change to dropbear directory
 cd dropbear-$VERSION
@@ -79,16 +94,27 @@ SYSROOT=${TOOLCHAIN}/sysroot
 export CC="$COMPILER --sysroot=$SYSROOT"
 
 # Android 5.0 Lollipop and greater require PIE. Default to this unless otherwise specified.
-if [ -z $DISABLE_PIE ]; then export CFLAGS="-g -O2 -pie -fPIE"; else echo "Disabling PIE compilation..."; fi
+if [ -z $DISABLE_PIE ]; then
+    export CFLAGS="-g -O2 -pie -fPIE"
+else
+    echo "Disabling PIE compilation..."
+fi
+
 sleep 5
 
 # Use the default platform target for pie binaries
 unset GOOGLE_PLATFORM
 
+if [ ${MAKE_CLEAN} = 1 ]; then
+    make clean
+fi
+
 ./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog > /dev/null 2>&1
 
 echo "Done generating files"
+
 sleep 2
+
 echo ""
 #########################################################################################################################
 ### END -- configure without modifications first to generate files
@@ -96,14 +122,14 @@ echo ""
 # Begin applying changes to make Android compatible
 
 # Apply the compatibility patch
+sleep 10
+if [ ${CLEAN} = 1 ]; then
+    echo "Applying Android compatibility patch"
 
-sleep 1
+    patch -p1 < ../dropbear-$VERSION-android.patch
 
-echo "Applying Android compatibility patch"
-
-patch -p1 < ../dropbear-$VERSION-android.patch
-
-sleep 3
+    sleep 3
+fi
 
 echo ""
 
@@ -112,6 +138,10 @@ cd -
 echo "Compiling for ARM"
 
 cd dropbear-$VERSION
+
+if [ ${MAKE_CLEAN} = 1 ]; then
+    make clean
+fi
 
 ./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog
 
