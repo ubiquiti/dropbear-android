@@ -22,7 +22,7 @@ pages:
   script:
     - ./build.sh
     - mkdir -p "${PUBLIC}"
-    - mv -v target/arm/dropbearmulti "${PUBLIC}/"
+    - mv -v target/arm/* "${PUBLIC}/"
   artifacts:
     paths:
       - ${PUBLIC}
