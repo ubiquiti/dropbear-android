@@ -20,7 +20,10 @@ if [ -z ${MULTI} ]; then
 
 elif [ ${MULTI} = 1 ]; then
     export MULTI=0
+fi
 
+if [ $(echo "$PROGRAMS" | wc -w) = 1 ]; then
+   export MULTI=0
 fi
 
 if [ -z ${INTERACTIVE} ]; then

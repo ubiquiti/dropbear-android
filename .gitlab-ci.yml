@@ -1,6 +1,6 @@
+# Dropbear Android Gitlab Builder
 # http://doc.gitlab.com/ce/ci/yaml/README.html
 # https://hub.docker.com/_/debian/
-# http://releases.linaro.org/components/toolchain/binaries/
 
 image: debian:latest
 
