@@ -54,6 +54,8 @@ fi
 
 if [ ${CLEAN} = 0 ] && [ -z ${MAKE_CLEAN} ]; then
     export MAKE_CLEAN=1
+else
+    export MAKE_CLEAN=0
 fi
 
 #Download the dropbear source if not found
@@ -154,6 +156,42 @@ echo "Nows your chance!"
 echo "Make any changes to source then"
 
 echo ""
+
+if [ ! -z ${DEFAULT_PORT} ]; then
+    sed -i -e's/^#define DROPBEAR_DEFPORT .*/#define DROPBEAR_DEFPORT "'$DEFAULT_PORT'"/' ${CWD}/dropbear-${VERSION}/default_options.h
+    unset DEFAULT_PORT
+fi
+
+if [ ! -z ${LOGIN_DIR} ]; then
+    sed -i 's:^.*ses.authstate.pw_dir = m_strdup(".*");:                                ses.authstate.pw_dir = m_strdup("'"$LOGIN_DIR"'");:' ${CWD}/dropbear-$VERSION/svr-auth.c
+    unset LOGIN_DIR
+fi
+
+if [ ! -z ${HOSTKEYS_DIR} ]; then
+    HOSTKEYS_DIR=$(echo "$HOSTKEYS_DIR" | sed 's:/*$::')
+    sed -i 's:^#define DSS_PRIV_FILENAME ".*":#define DSS_PRIV_FILENAME "'$HOSTKEYS_DIR'/dropbear_dss_host_key":' ${CWD}/dropbear-${VERSION}/default_options.h
+    sed -i 's:^#define RSA_PRIV_FILENAME ".*":#define RSA_PRIV_FILENAME "'$HOSTKEYS_DIR'/dropbear_rsa_host_key":' ${CWD}/dropbear-${VERSION}/default_options.h
+    sed -i 's:^#define ECDSA_PRIV_FILENAME ".*":#define ECDSA_PRIV_FILENAME "'$HOSTKEYS_DIR'/dropbear_rsa_host_key":' ${CWD}/dropbear-${VERSION}/default_options.h
+    unset HOSTKEYS_DIR
+fi
+
+if [ ! -z ${SFTPSERVER_PATH} ]; then
+    SFTPSERVER_PATH=$(echo "$SFTPSERVER_PATH" | sed 's:/*$::')
+    sed -i 's:^#define SFTPSERVER_PATH ".*":#define SFTPSERVER_PATH "'$SFTPSERVER_PATH'":' ${CWD}/dropbear-${VERSION}/default_options.h
+    unset SFTPSERVER_PATH
+fi
+
+if [ ! -z ${PID_PATH} ]; then
+    PID_PATH=$(echo "$PID_PATH" | sed 's:/*$::')
+    sed -i 's:^#define DROPBEAR_PIDFILE ".*":#define DROPBEAR_PIDFILE "'$PID_PATH'":' ${CWD}/dropbear-${VERSION}/default_options.h
+    unset PID_PATH
+fi
+
+if [ ! -z ${SSHCLI_PATH} ]; then
+    SSHCLI_PATH=$(echo "$SSHCLI_PATH" | sed 's:/*$::')
+    sed -i 's:^#define DROPBEAR_PATH_SSH_PROGRAM ".*":#define DROPBEAR_PATH_SSH_PROGRAM "'$SSHCLI_PATH'":' ${CWD}/dropbear-${VERSION}/default_options.h 
+    unset SSHCLI_PATH
+fi
 
 if [ ${INTERACTIVE} = 1 ]; then
     read -p "Press Return to Continue..."
