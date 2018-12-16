@@ -58,47 +58,47 @@ Build Time VARs
 ----
 Here is a list of variables to be exported before running the build in order to customize the outputted bin(s) and behavior of script. The values below are the defaults when unspecified.     
 
-# Starts build from unpatched unmodified copy of source. 
-'''CLEAN=0'''
+# Starts build from unpatched unmodified copy of source  
+```CLEAN=0```  
 
 # Defines the default listening port for the Dropbear server  
-'''DEFAULT_PORT=10022'''
+```DEFAULT_PORT=10022```  
 
 # Disables build of PIE binary  
-'''DISABLE_PIE'''  
+```DISABLE_PIE```  
 
 # Specify the directory to store and load host keys from  
-'''HOSTKEYS_DIR=./'''  
+```HOSTKEYS_DIR=./```  
 
-# Run the build in interactive mode to allow for modifications (Press Return to Continue...)
-'''INTERACTIVE=1'''  
+# Run the build in interactive mode to allow for modifications (Press Return to Continue...)  
+```INTERACTIVE=1```  
 
 # Default directory to start in upon successful login  
-'''LOGIN_DIR=/data/local'''
+```LOGIN_DIR=/data/local```  
 
 # Runs 'make clean' before compilation  
-'''MAKE_CLEAN=1'''
+```MAKE_CLEAN=1```  
 
-# Outputs multiple binaries instead of combined linkable binary.
-'''MULTI=0'''
+# Outputs multiple binaries instead of combined linkable binary  
+```MULTI=0```  
 
-# Path to store process ID
-'''PID_PATH='''
+# Path to store process ID  
+```PID_PATH=```  
 
-# Programs to build
-'''PROGRAMS=dropbear dbclient dropbearconvert dropbearkey scp'''
+# Programs to build  
+```PROGRAMS=dropbear dbclient dropbearconvert dropbearkey scp```  
 
-# Path to sftp-server
-'''SFTPSERVER_PATH=/usr/libexec/sftp-server'''
+# Path to sftp-server  
+```SFTPSERVER_PATH=/usr/libexec/sftp-server```  
 
-# Path to the ssh client
-'''SSHCLI_PATH=/usr/bin/dbclient'''
+# Path to the ssh client  
+```SSHCLI_PATH=/usr/bin/dbclient```  
 
-# Build statically linked binary
-'''STATIC=1'''
+# Build statically linked binary  
+```STATIC=1```  
 
-# Path to the toolchain
-'''TOOLCHAIN=/dropbear-android/android-rc11-standalone-toolchain'''
+# Path to the toolchain  
+```TOOLCHAIN=/dropbear-android/android-rc11-standalone-toolchain```  
 
 
 Basic usage
