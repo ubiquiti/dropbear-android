@@ -2,9 +2,6 @@
 # http://doc.gitlab.com/ce/ci/yaml/README.html
 # https://hub.docker.com/_/debian/
 
-when: manual
-allow_failure: true
-
 image: debian:latest
 
 variables:
@@ -19,6 +16,7 @@ stages:
   - build
 
 pages:
+  when: manual
   stage: build
   only:
     - master
