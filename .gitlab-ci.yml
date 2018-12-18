@@ -2,6 +2,9 @@
 # http://doc.gitlab.com/ce/ci/yaml/README.html
 # https://hub.docker.com/_/debian/
 
+when: manual
+allow_failure: true
+
 image: debian:latest
 
 variables:
@@ -17,7 +20,6 @@ stages:
 
 pages:
   stage: build
-  when: manual
   only:
     - master
   script:
@@ -29,3 +31,4 @@ pages:
     paths:
       - ${PUBLIC}
     expire_in: 1 day
+ 
