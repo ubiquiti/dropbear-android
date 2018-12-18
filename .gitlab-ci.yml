@@ -11,7 +11,7 @@ variables:
  
 before_script:
   - apt-get --quiet update --yes
-  - apt-get --quiet install --yes wget xz-utils make binutils build-essential git
+  - apt-get --quiet install --yes wget xz-utils make binutils coreutils build-essential git
 stages:
   - build
 
@@ -22,10 +22,11 @@ pages:
     - master
   script:
     - ./build.sh
+    - export DATE=$(date +"%m%d%H%M%S")
     - mkdir -p "${PUBLIC}"
     - mv -v target/arm/* "${PUBLIC}/"
   artifacts:
-    name: dropbear-android
+    name: dropbear-android-${DATE}
     paths:
       - ${PUBLIC}
     expire_in: 1 day
