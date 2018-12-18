@@ -6,9 +6,8 @@ image: debian:latest
 
 variables:
   TERM: xterm
-  PUBLIC: public
+  BIN: bin
   INTERACTIVE: 0
-  DATE: $(date -u +"%m%d%H%M%S")
  
 before_script:
   - apt-get --quiet update --yes
@@ -22,9 +21,10 @@ pages:
     - master
   script:
     - ./build.sh
-    - mkdir -p "${PUBLIC}"
-    - mv -v target/arm/* "${PUBLIC}/"
+    - export DATE=$(date -u +"%m%d%H%M%S")
+    - mkdir -p "${BIN}"
+    - mv -v target/arm/* "${BIN}/"
   artifacts:
     name: dropbear-android-${DATE}
     paths:
-      - ${PUBLIC}
+      - ${BIN}
