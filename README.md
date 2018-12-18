@@ -64,10 +64,13 @@ Here is a list of variables to be exported before running the build in order to 
 - Defines the default listening port for the Dropbear server  
 ```DEFAULT_PORT=10022```  
 
+- Define the PATH(s) to binary executables on Android  
+```DEFAULT_PATH```  
+
 - Disables build of PIE binary  
 ```DISABLE_PIE```  
 
-- Specify the directory to store and load host keys from  
+- Specifies the directory dropbear stores and loads host keys from  
 ```HOSTKEYS_DIR=./```  
 
 - Run the build in interactive mode to allow for modifications (Press Return to Continue...)  

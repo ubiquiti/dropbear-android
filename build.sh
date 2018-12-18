@@ -108,10 +108,10 @@ sleep 5
 unset GOOGLE_PLATFORM
 
 if [ ${MAKE_CLEAN} = 1 ]; then
-    make clean
+    make clean > /dev/null 2>&1
 fi
 
-./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog > /dev/null 2>&1
+./configure --host=$HOST --disable-zlib --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog > /dev/null 2>&1
 
 echo "Done generating files"
 
@@ -157,7 +157,7 @@ echo "Make any changes to source then"
 
 echo ""
 
-if [ ! -z ${DEFAULT_PORT} ]; then
+if [ ! -z ${DEFAULT_PORT} ] && [ ${DEFAULT_PORT} -eq ${DEFAULT_PORT} ] > /dev/null 2>&1; then
     sed -i -e's/^#define DROPBEAR_DEFPORT .*/#define DROPBEAR_DEFPORT "'$DEFAULT_PORT'"/' ${CWD}/dropbear-${VERSION}/default_options.h
 fi
 
@@ -185,6 +185,11 @@ fi
 if [ ! -z ${SSHCLI_PATH} ]; then
     SSHCLI_PATH=$(echo "$SSHCLI_PATH" | sed 's:/*$::')
     sed -i 's:^#define DROPBEAR_PATH_SSH_PROGRAM ".*":#define DROPBEAR_PATH_SSH_PROGRAM "'$SSHCLI_PATH'":' ${CWD}/dropbear-${VERSION}/default_options.h 
+fi
+
+if [ ! -z ${DEFAULT_PATH} ]; then
+    DEFAULT_PATH=$(echo "$DEFAULT_PATH" | sed 's:/*$::')
+    sed -i 's,^#define DEFAULT_PATH ".*",#define DEFAULT_PATH "'$DEFAULT_PATH'",' ${CWD}/dropbear-${VERSION}/default_options.h
 fi
 
 if [ ${INTERACTIVE} = 1 ]; then
@@ -221,8 +226,9 @@ fi
 
 touch $TARGET/arm/build.info
 
-echo  "Build Completed:" "$(date)" > $TARGET/arm/build.info
+echo  "# Build Completed:" "$(date)" > $TARGET/arm/build.info
 echo "CLEAN=""$CLEAN" >> $TARGET/arm/build.info
+echo "DEFAULT_PATH=""$DEFAULT_PATH" >> $TARGET/arm/build.info
 echo "DEFAULT_PORT=""$DEFAULT_PORT" >> $TARGET/arm/build.info
 echo "DISABLE_PIE""$DISABLE_PIE" >> $TARGET/arm/build.info
 echo "HOSTKEYS_DIR=""$HOSTKEYS_DIR" >> $TARGET/arm/build.info
