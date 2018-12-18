@@ -16,7 +16,8 @@ stages:
   - build
 
 pages:
-  when: manual
+  when: 
+    - manual
   stage: build
   only:
     - master
