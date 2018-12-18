@@ -8,6 +8,7 @@ variables:
   TERM: xterm
   PUBLIC: public
   INTERACTIVE: 0
+  DATE: $(date -u +"%m%d%H%M%S")
  
 before_script:
   - apt-get --quiet update --yes
@@ -24,5 +25,6 @@ pages:
     - mkdir -p "${PUBLIC}"
     - mv -v target/arm/* "${PUBLIC}/"
   artifacts:
+    name: dropbear-android-${DATE}
     paths:
       - ${PUBLIC}
