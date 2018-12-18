@@ -6,12 +6,12 @@ image: debian:latest
 
 variables:
   TERM: xterm
-  PUBLIC: public
+  PUBLIC: bin
   INTERACTIVE: 0
  
 before_script:
   - apt-get --quiet update --yes
-  - apt-get --quiet install --yes wget xz-utils autoconf make binutils build-essential git
+  - apt-get --quiet install --yes wget xz-utils make binutils build-essential git
 stages:
   - build
 
@@ -21,10 +21,10 @@ pages:
     - master
   script:
     - ./build.sh
-    - export DATE=$(date -u +"%m%d%H%M%S")
     - mkdir -p "${PUBLIC}"
     - mv -v target/arm/* "${PUBLIC}/"
   artifacts:
-    name: dropbear-android-${DATE}
+    name: dropbear-android-2018.76
     paths:
       - ${PUBLIC}
+    expire_in: 1 day
