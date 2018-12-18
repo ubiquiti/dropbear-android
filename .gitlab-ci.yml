@@ -6,7 +6,7 @@ image: debian:latest
 
 variables:
   TERM: xterm
-  PUBLIC: bin
+  PUBLIC: public
   INTERACTIVE: 0
  
 before_script:
