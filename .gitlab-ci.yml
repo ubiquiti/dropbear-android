@@ -17,6 +17,7 @@ stages:
 
 pages:
   stage: build
+  when: manual
   only:
     - master
   script:
@@ -24,7 +25,7 @@ pages:
     - mkdir -p "${PUBLIC}"
     - mv -v target/arm/* "${PUBLIC}/"
   artifacts:
-    name: dropbear-android-2018.76
+    name: dropbear-android
     paths:
       - ${PUBLIC}
     expire_in: 1 day
