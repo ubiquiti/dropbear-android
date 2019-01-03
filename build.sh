@@ -145,7 +145,7 @@ if [ ${MAKE_CLEAN} = 1 ]; then
     make clean
 fi
 
-./configure --host=$HOST --disable-zlib --disable-largefile --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog
+./configure --host=$HOST --disable-zlib --disable-shadow --disable-utmp --disable-utmpx --disable-wtmp --disable-wtmpx --disable-pututxline --disable-lastlog
 
 echo "configure:"
 echo "configure: Disregard warnings about crypt() & getpass()"
