@@ -1,0 +1,33 @@
+# Dropbear Android Gitlab Builder
+# http://doc.gitlab.com/ce/ci/yaml/README.html
+# https://hub.docker.com/_/debian/
+
+image: debian:latest
+
+variables:
+  TERM: xterm
+  PUBLIC: public
+  INTERACTIVE: 0
+ 
+before_script:
+  - apt-get --quiet update --yes
+  - apt-get --quiet install --yes wget xz-utils make binutils coreutils build-essential git
+stages:
+  - build
+
+pages:
+  when: manual
+  stage: build
+  only:
+    - master
+  script:
+    - ./build.sh
+    - export DATE=$(date +"%m%d%H%M%S")
+    - mkdir -p "${PUBLIC}"
+    - mv -v target/arm/* "${PUBLIC}/"
+  artifacts:
+    name: dropbear-android-${DATE}
+    paths:
+      - ${PUBLIC}
+    expire_in: 1 day
+ 

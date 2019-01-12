@@ -1,11 +1,11 @@
-Android Dropbear
+Android Dropbear 2018.76
 =========
 
-A patch set and script to download and cross-compile Dropbear SSH server for use on Android with password authentication.
-As the 64-bit binaries don't seem to work reliably, this project is configured to compile 32-bit binaries
-using the Android NDK toolchain.
+A script & patch to cross-compile Dropbear SSH server/client for use on Android with password authentication.
+Since the 64-bit binaries don't seem to work reliably, this project is configured to compile a single muti-purpose 32-bit binary
+using a standalone Android ```r11c``` NDK toolchain.
 
-Generated binares will all be PIE (position indepedent executable) binaries as it is required on Android 5 (L/ollipop).
+Generated binary will be PIE (position indepedent executable) as required on Android 5 (L/ollipop) and above.
 
 If building for android < 4.1 then before building, issue:
 ```
@@ -15,21 +15,24 @@ export DISABLE_PIE=1
 Building Dropbear for Android
 ----
 
-The process consists of just four parts:  
-1) Specify the version of Dropbear you'd like to download and crosscompile. Open build-android-dropbear.sh and change the value of ``VERSION`` at the top, which defaults to ``2018.76``  
-2) Build your standalone android toolchain.  
-See the android developer site for more info: https://developer.android.com/ndk/guides/standalone_toolchain.html
-3) Export your toolchain's location:
+The process consists of just 3 parts:  
+
+1) Git clone this repo:   
 ```
-export TOOLCHAIN=/path/to/standalone/toolchain
+git clone https://github.com/Geofferey/dropbear-android.git
+```  
+
+2) Change to the direcotry:  
+```
+cd android-dropbear
 ```
 
-4) Run the build script:
+3) Run the build script:  
 ```
-./build-dropbear-android.sh
+./build.sh
 ```
 
-Generated binaries will be outputted to ``{android dropbear repo directory}/target/arm``
+Generated binary will be outputted to ``{android dropbear repo directory}/target/arm/dropbearmulti``
 
 
 Customizations
@@ -42,7 +45,65 @@ Much of the project is pre-configured with sane defaults, but if you'd like to c
 	c) config.h  
 
 For instance, to change the port Dropbear runs on or to change the default location in which Dropbear tries to generate keys, edit ``default_options.h`` and modify the respective values.  
-  
+
+2) It is also possible to change behavior of build script by exporting vars before execution.  
+        a) to build different version ```export VERSION=```  
+        b) to build multiple binaries ```export MULTI=1```  
+        c) to build non static binaries ```export STATIC=0```  
+        d) to select programs to output ```export PROGRAMS=```  
+		available programs ```dbclient dropbear dropbearconvert dropbearkey scp```  
+        e) to use another toolchain ```export TOOLCHAIN=/path/to/tc```  
+
+Build Time VARs
+----
+Here is a list of variables to be exported before running the build in order to customize the outputted bin(s) and behavior of script. The values below are the defaults when unspecified.     
+
+- Starts build from unpatched unmodified copy of source  
+```CLEAN=0```  
+
+- Defines the default listening port for the Dropbear server  
+```DEFAULT_PORT=10022```  
+
+- Define the PATH(s) to binary executables on Android  
+```DEFAULT_PATH```  
+
+- Disables build of PIE binary  
+```DISABLE_PIE```  
+
+- Specifies the directory dropbear stores and loads host keys from  
+```HOSTKEYS_DIR=./```  
+
+- Run the build in interactive mode to allow for modifications (Press Return to Continue...)  
+```INTERACTIVE=1```  
+
+- Default directory to start in upon successful login  
+```LOGIN_DIR=/data/local```  
+
+- Runs 'make clean' before compilation  
+```MAKE_CLEAN=1```  
+
+- Outputs multiple binaries instead of combined linkable binary  
+```MULTI=0```  
+
+- Path to store process ID  
+```PID_PATH=```  
+
+- Programs to build  
+```PROGRAMS=dropbear dbclient dropbearconvert dropbearkey scp```  
+
+- Path to sftp-server  
+```SFTPSERVER_PATH=/usr/libexec/sftp-server```  
+
+- Path to the ssh client  
+```SSHCLI_PATH=/usr/bin/dbclient```  
+
+- Build statically linked binary  
+```STATIC=1```  
+
+- Path to the toolchain  
+```TOOLCHAIN=/dropbear-android/android-rc11-standalone-toolchain```  
+
+
 Basic usage
 ----
 Dropbear for Android adds a few special flags to Dropbear:  
@@ -63,15 +124,26 @@ The above command will run the Dropbear server with password authentication enab
 ./dropbear --help
 ````
 
-Credits
+Contributions
 ----
 Big thanks to mkj who has been maintaining Dropbear:  
-https://github.com/mkj/dropbear  
+https://github.com/mkj/dropbear
+
 
 Thanks to NHellfire who's work made the process of getting 2018.76 up and running much easier:  
 https://github.com/NHellFire/dropbear-android  
 
+
 Thanks to jmfoy for the ```config.sub``` and ```config.guess``` files:  
 https://github.com/jfmoy/android-dropbear
 
-Another thank you to the various other repositories out there whose various approches helped lead to this completed project.
+
+Thanks to wolfdude & serasihay @XDA for ```netbsd_getpass.c``` implementation:  
+https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2015-67-t3142412/page2  
+https://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2016-73-t3351671  
+
+
+Thanks to yoshinrt for ```openpty.patch``` fix:  
+https://github.com/yoshinrt/dropbear-android
+
+Another thank you to the various repositories out there whose contributions helped lead to the completion of this project.
