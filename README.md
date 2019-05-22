@@ -23,8 +23,11 @@ See the android developer site for more info: https://developer.android.com/ndk/
 ```
 export TOOLCHAIN=/path/to/standalone/toolchain
 ```
-
-4) Run the build script:
+4) If you are using NDK r19 or later, you must also specify the compiler (notice the API version number):
+```
+export COMPILER=${TOOLCHAIN}/bin/armv7a-linux-androideabi23-clang
+```
+5) Run the build script:
 ```
 ./build-dropbear-android.sh
 ```

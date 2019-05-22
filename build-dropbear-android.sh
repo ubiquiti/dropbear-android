@@ -10,6 +10,7 @@ export TARGET=../target
 export PROGRAMS="dropbear dropbearkey"
 # Which version of Dropbear to download for patching
 export VERSION=2018.76
+export VERSION=2019.78
 
 # Download the latest version of dropbear SSH
 if [ ! -f ./dropbear-$VERSION.tar.bz2 ]; then
@@ -28,7 +29,12 @@ cd dropbear-$VERSION
 echo "Generating required files..."
 
 HOST=arm-linux-androideabi
-COMPILER=${TOOLCHAIN}/bin/arm-linux-androideabi-gcc
+# in case you have a NDK version greater or equal to r19 toolchains are
+# already standalone and you should set a COMPILER variable to something like:
+#COMPILER=${TOOLCHAIN}/bin/armv7a-linux-androideabi23-clang
+if [ -z "$COMPILER" ] ; then
+	COMPILER=${TOOLCHAIN}/bin/arm-linux-androideabi-gcc
+fi
 STRIP=${TOOLCHAIN}/bin/arm-linux-androideabi-strip
 SYSROOT=${TOOLCHAIN}/sysroot
 
