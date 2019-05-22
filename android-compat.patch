@@ -1,6 +1,6 @@
 diff -Naur dropbear-2019.78.orig/configure dropbear-2019.78/configure
 --- dropbear-2019.78.orig/configure	2019-03-27 07:15:41.000000000 -0700
-+++ dropbear-2019.78/configure	2019-05-22 00:22:11.942365914 -0700
++++ dropbear-2019.78/configure	2019-05-22 03:00:40.740603514 -0700
 @@ -4747,11 +4747,11 @@
  fi
  
@@ -17,7 +17,7 @@ diff -Naur dropbear-2019.78.orig/configure dropbear-2019.78/configure
  
 diff -Naur dropbear-2019.78.orig/default_options.h dropbear-2019.78/default_options.h
 --- dropbear-2019.78.orig/default_options.h	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/default_options.h	2019-05-22 00:22:11.942365914 -0700
++++ dropbear-2019.78/default_options.h	2019-05-22 03:00:40.740603514 -0700
 @@ -13,15 +13,15 @@
  
  IMPORTANT: Some options will require "make clean" after changes */
@@ -40,12 +40,13 @@ diff -Naur dropbear-2019.78.orig/default_options.h dropbear-2019.78/default_opti
   * on chosen ports and keeps accepting connections. This is the default.
 diff -Naur dropbear-2019.78.orig/runopts.h dropbear-2019.78/runopts.h
 --- dropbear-2019.78.orig/runopts.h	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/runopts.h	2019-05-22 00:22:11.942365914 -0700
-@@ -123,6 +123,13 @@
++++ dropbear-2019.78/runopts.h	2019-05-22 03:00:40.740603514 -0700
+@@ -123,6 +123,14 @@
  	buffer * banner;
  	char * pidfile;
  
 +	int android_mode;
++	int android_envpasswd;
 +    char *user_name;
 +    char *passwd;
 +    char *authkey;
@@ -57,7 +58,7 @@ diff -Naur dropbear-2019.78.orig/runopts.h dropbear-2019.78/runopts.h
  } svr_runopts;
 diff -Naur dropbear-2019.78.orig/svr-auth.c dropbear-2019.78/svr-auth.c
 --- dropbear-2019.78.orig/svr-auth.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-auth.c	2019-05-22 00:22:11.942365914 -0700
++++ dropbear-2019.78/svr-auth.c	2019-05-22 03:00:40.740603514 -0700
 @@ -37,19 +37,26 @@
  #include "runopts.h"
  #include "dbrandom.h"
@@ -204,7 +205,7 @@ diff -Naur dropbear-2019.78.orig/svr-auth.c dropbear-2019.78/svr-auth.c
  	 * is platform-specific) */
 diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpasswd.c
 --- dropbear-2019.78.orig/svr-authpasswd.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-authpasswd.c	2019-05-22 00:22:11.946366346 -0700
++++ dropbear-2019.78/svr-authpasswd.c	2019-05-22 03:00:40.740603514 -0700
 @@ -48,11 +48,9 @@
  
  /* Process a password auth request, sending success or failure messages as
@@ -279,7 +280,7 @@ diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpassw
  #endif
 diff -Naur dropbear-2019.78.orig/svr-authpubkey.c dropbear-2019.78/svr-authpubkey.c
 --- dropbear-2019.78.orig/svr-authpubkey.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-authpubkey.c	2019-05-22 00:22:11.946366346 -0700
++++ dropbear-2019.78/svr-authpubkey.c	2019-05-22 03:00:40.740603514 -0700
 @@ -64,6 +64,7 @@
  #include "ssh.h"
  #include "packet.h"
@@ -321,7 +322,7 @@ diff -Naur dropbear-2019.78.orig/svr-authpubkey.c dropbear-2019.78/svr-authpubke
  	/* open the file as the authenticating user. */
 diff -Naur dropbear-2019.78.orig/svr-chansession.c dropbear-2019.78/svr-chansession.c
 --- dropbear-2019.78.orig/svr-chansession.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-chansession.c	2019-05-22 00:22:11.946366346 -0700
++++ dropbear-2019.78/svr-chansession.c	2019-05-22 03:00:40.740603514 -0700
 @@ -610,11 +610,23 @@
  		dropbear_exit("Out of memory"); /* TODO disconnect */
  	}
@@ -371,21 +372,31 @@ diff -Naur dropbear-2019.78.orig/svr-chansession.c dropbear-2019.78/svr-chansess
  	}
 diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
 --- dropbear-2019.78.orig/svr-runopts.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-runopts.c	2019-05-22 00:22:11.946366346 -0700
-@@ -42,6 +42,12 @@
++++ dropbear-2019.78/svr-runopts.c	2019-05-22 03:04:34.046325255 -0700
+@@ -31,6 +31,8 @@
+ #include "ecdsa.h"
+ 
+ #include <grp.h>
++#include <stdio.h>
++#include <stdlib.h>
+ 
+ svr_runopts svr_opts; /* GLOBAL */
+ 
+@@ -42,6 +44,13 @@
  static void printhelp(const char * progname) {
  
  	fprintf(stderr, "Dropbear server v%s https://matt.ucc.asn.au/dropbear/dropbear.html\n"
 +					"-A Android Mode, specify a user explicitly\n"
 +					"-N Android Mode, user name\n"
 +					"-C Android Mode, password\n"
++					"-M Android Mode, read password from DROPBEAR_PASSWD environment variable\n"
 +					"-T Android Mode, public key file (authorized_keys)\n"               
 +					"-U Android Mode, UID\n"
 +					"-G Android Mode, GID\n"
  					"Usage: %s [options]\n"
  					"-b bannerfile	Display the contents of bannerfile"
  					" before user login\n"
-@@ -122,6 +128,7 @@
+@@ -122,6 +131,7 @@
  
  	unsigned int i, j;
  	char ** next = NULL;
@@ -393,11 +404,21 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
  	int nextisport = 0;
  	char* recv_window_arg = NULL;
  	char* keepalive_arg = NULL;
-@@ -150,6 +157,12 @@
+@@ -129,7 +139,7 @@
+ 	char* maxauthtries_arg = NULL;
+ 	char* keyfile = NULL;
+ 	char c;
+-
++	const char* envpasswd = NULL;
+ 
+ 	/* see printhelp() for options */
+ 	svr_opts.bannerfile = NULL;
+@@ -150,6 +160,13 @@
  	svr_opts.hostkey = NULL;
  	svr_opts.delay_hostkey = 0;
  	svr_opts.pidfile = DROPBEAR_PIDFILE;
 +	svr_opts.android_mode = 0;
++	svr_opts.android_envpasswd = 0;
 +	svr_opts.user_name = NULL;
 +	svr_opts.passwd = NULL;
 +	svr_opts.authkey = NULL;
@@ -406,7 +427,7 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
  #if DROPBEAR_SVR_LOCALTCPFWD
  	svr_opts.nolocaltcp = 0;
  #endif
-@@ -185,6 +198,26 @@
+@@ -185,6 +202,29 @@
  
  		for (j = 1; (c = argv[i][j]) != '\0' && !next && !nextisport; j++) {
  			switch (c) {
@@ -418,6 +439,9 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
 +					break;
 +				case 'C':
 +					next = &svr_opts.passwd;
++					break;
++				case 'M':
++					svr_opts.android_envpasswd = 1;
 +					break;
 +				case 'T':
 +					next = &svr_opts.authkey;
@@ -433,7 +457,7 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
  				case 'b':
  					next = &svr_opts.bannerfile;
  					break;
-@@ -239,11 +272,11 @@
+@@ -239,11 +279,11 @@
  				case 'w':
  					svr_opts.norootlogin = 1;
  					break;
@@ -450,7 +474,7 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
  				case 'W':
  					next = &recv_window_arg;
  					break;
-@@ -253,9 +286,9 @@
+@@ -253,9 +293,9 @@
  				case 'I':
  					next = &idle_timeout_arg;
  					break;
@@ -463,7 +487,7 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
  #if DROPBEAR_SVR_PASSWORD_AUTH || DROPBEAR_SVR_PAM_AUTH
  				case 's':
  					svr_opts.noauthpass = 1;
-@@ -302,6 +335,13 @@
+@@ -302,6 +342,13 @@
  			}
  		}
  
@@ -477,9 +501,25 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
  		if (nextisport) {
  			addportandaddress(&argv[i][j]);
  			nextisport = 0;
+@@ -319,6 +366,15 @@
+ 		}
+ 	}
+ 
++	/* read password from DROPBEAR_PASSWD environment variable */
++	if (svr_opts.android_envpasswd == 1) {
++		envpasswd = getenv("DROPBEAR_PASSWD");
++		if (envpasswd == NULL) {
++			dropbear_exit("Error reading DROPBEAR_PASSWD environment variable");
++		}
++		svr_opts.passwd = m_strdup(envpasswd);
++	}
++
+ 	/* Set up listening ports */
+ 	if (svr_opts.portcount == 0) {
+ 		svr_opts.ports[0] = m_strdup(DROPBEAR_DEFPORT);
 diff -Naur dropbear-2019.78.orig/sysoptions.h dropbear-2019.78/sysoptions.h
 --- dropbear-2019.78.orig/sysoptions.h	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/sysoptions.h	2019-05-22 00:22:11.946366346 -0700
++++ dropbear-2019.78/sysoptions.h	2019-05-22 03:00:40.740603514 -0700
 @@ -235,9 +235,9 @@
  #error "DROPBEAR_SVR_PATM_AUTH requires PAM headers. Perhaps ./configure --enable-pam ?"
  #endif
