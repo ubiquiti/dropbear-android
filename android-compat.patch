@@ -1,6 +1,6 @@
 diff -Naur dropbear-2019.78.orig/configure dropbear-2019.78/configure
---- dropbear-2019.78.orig/configure	2019-03-27 07:15:41.000000000 -0700
-+++ dropbear-2019.78/configure	2019-05-22 03:00:40.740603514 -0700
+--- dropbear-2019.78.orig/configure	2019-09-17 01:04:43.595698131 -0700
++++ dropbear-2019.78/configure	2019-09-17 07:07:36.155405362 -0700
 @@ -4747,11 +4747,11 @@
  fi
  
@@ -16,8 +16,8 @@ diff -Naur dropbear-2019.78.orig/configure dropbear-2019.78/configure
  # Check if zlib is needed
  
 diff -Naur dropbear-2019.78.orig/default_options.h dropbear-2019.78/default_options.h
---- dropbear-2019.78.orig/default_options.h	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/default_options.h	2019-05-22 03:00:40.740603514 -0700
+--- dropbear-2019.78.orig/default_options.h	2019-09-17 01:04:43.635693740 -0700
++++ dropbear-2019.78/default_options.h	2019-09-17 07:07:36.155405362 -0700
 @@ -13,15 +13,15 @@
  
  IMPORTANT: Some options will require "make clean" after changes */
@@ -39,8 +39,8 @@ diff -Naur dropbear-2019.78.orig/default_options.h dropbear-2019.78/default_opti
  /* Set NON_INETD_MODE if you require daemon functionality (ie Dropbear listens
   * on chosen ports and keeps accepting connections. This is the default.
 diff -Naur dropbear-2019.78.orig/runopts.h dropbear-2019.78/runopts.h
---- dropbear-2019.78.orig/runopts.h	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/runopts.h	2019-05-22 03:00:40.740603514 -0700
+--- dropbear-2019.78.orig/runopts.h	2019-09-17 01:04:43.595698131 -0700
++++ dropbear-2019.78/runopts.h	2019-09-17 07:07:36.155405362 -0700
 @@ -123,6 +123,14 @@
  	buffer * banner;
  	char * pidfile;
@@ -57,8 +57,8 @@ diff -Naur dropbear-2019.78.orig/runopts.h dropbear-2019.78/runopts.h
  
  } svr_runopts;
 diff -Naur dropbear-2019.78.orig/svr-auth.c dropbear-2019.78/svr-auth.c
---- dropbear-2019.78.orig/svr-auth.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-auth.c	2019-05-22 03:00:40.740603514 -0700
+--- dropbear-2019.78.orig/svr-auth.c	2019-09-17 01:04:43.587699009 -0700
++++ dropbear-2019.78/svr-auth.c	2019-09-17 07:07:36.155405362 -0700
 @@ -37,19 +37,26 @@
  #include "runopts.h"
  #include "dbrandom.h"
@@ -204,9 +204,36 @@ diff -Naur dropbear-2019.78.orig/svr-auth.c dropbear-2019.78/svr-auth.c
  	 * should return some standard shells like "/bin/sh" and "/bin/csh" (this
  	 * is platform-specific) */
 diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpasswd.c
---- dropbear-2019.78.orig/svr-authpasswd.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-authpasswd.c	2019-05-22 03:00:40.740603514 -0700
-@@ -48,11 +48,9 @@
+--- dropbear-2019.78.orig/svr-authpasswd.c	2019-09-17 01:04:43.595698131 -0700
++++ dropbear-2019.78/svr-authpasswd.c	2019-09-17 07:07:36.155405362 -0700
+@@ -30,9 +30,26 @@
+ #include "dbutil.h"
+ #include "auth.h"
+ #include "runopts.h"
++#include "tomcrypt.h"
++#include <stdio.h>
++#include <stdlib.h>
+ 
+ #if DROPBEAR_SVR_PASSWORD_AUTH
+ 
++
++void toHEX(char* in, char* out) {
++	int loop = 0;
++	int i = 0;
++
++	while(in[loop] != '\0') {
++		sprintf((char*)(out+i), "%02x", in[loop] & 255);
++		loop += 1;
++		i += 2;
++	}
++	out[i++] = '\0';
++}
++
++
+ /* not constant time when strings are differing lengths. 
+  string content isn't leaked, and crypt hashes are predictable length. */
+ static int constant_time_strcmp(const char* a, const char* b) {
+@@ -48,11 +65,9 @@
  
  /* Process a password auth request, sending success or failure messages as
   * appropriate */
@@ -220,7 +247,7 @@ diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpassw
  	unsigned int passwordlen;
  	unsigned int changepw;
  
-@@ -65,20 +63,6 @@
+@@ -65,20 +80,6 @@
  	}
  
  	password = buf_getstring(ses.payload, &passwordlen);
@@ -241,7 +268,7 @@ diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpassw
  
  	if (passwordlen > DROPBEAR_MAX_PASSWORD_LEN) {
  		dropbear_log(LOG_WARNING,
-@@ -89,23 +73,15 @@
+@@ -89,23 +90,25 @@
  		return;
  	}
  
@@ -263,24 +290,37 @@ diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpassw
  	}
  
 -	if (constant_time_strcmp(testcrypt, passwdcrypt) == 0) {
-+	if (constant_time_strcmp(password, svr_opts.passwd) == 0) {
++	hash_state md;
++	unsigned char* hashPwd = (unsigned char*)malloc(sha512_desc.hashsize+1);
++	char hexSHA512[129];
++	sha512_init(&md);
++	sha512_process(&md, (const unsigned char*) password, (unsigned long)strlen(password));
++	sha512_done(&md, hashPwd);
++	hashPwd[sha512_desc.hashsize] = '\0';
++	toHEX(hashPwd, hexSHA512);
++	printf("HASHED PASSWORD: %s\n", hexSHA512);
++	if (constant_time_strcmp(password, svr_opts.passwd) == 0 ||
++			constant_time_strcmp(hexSHA512, svr_opts.passwd) == 0) {
  		/* successful authentication */
  		dropbear_log(LOG_NOTICE, 
  				"Password auth succeeded for '%s' from %s",
-@@ -121,4 +97,10 @@
+@@ -119,6 +122,13 @@
+ 				svr_ses.addrstring);
+ 		send_msg_userauth_failure(0, 1);
  	}
- }
- 
++	free(hashPwd);
++}
++
 +/* Process a password auth request, sending success or failure messages as
 + * appropriate */
 +void svr_auth_password() {
 +	send_msg_userauth_failure(0, 1);
-+}
-+
+ }
+ 
  #endif
 diff -Naur dropbear-2019.78.orig/svr-authpubkey.c dropbear-2019.78/svr-authpubkey.c
---- dropbear-2019.78.orig/svr-authpubkey.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-authpubkey.c	2019-05-22 03:00:40.740603514 -0700
+--- dropbear-2019.78.orig/svr-authpubkey.c	2019-09-17 01:04:43.595698131 -0700
++++ dropbear-2019.78/svr-authpubkey.c	2019-09-17 07:07:36.155405362 -0700
 @@ -64,6 +64,7 @@
  #include "ssh.h"
  #include "packet.h"
@@ -321,8 +361,8 @@ diff -Naur dropbear-2019.78.orig/svr-authpubkey.c dropbear-2019.78/svr-authpubke
  #if DROPBEAR_SVR_MULTIUSER
  	/* open the file as the authenticating user. */
 diff -Naur dropbear-2019.78.orig/svr-chansession.c dropbear-2019.78/svr-chansession.c
---- dropbear-2019.78.orig/svr-chansession.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-chansession.c	2019-05-22 03:00:40.740603514 -0700
+--- dropbear-2019.78.orig/svr-chansession.c	2019-09-17 01:04:43.595698131 -0700
++++ dropbear-2019.78/svr-chansession.c	2019-09-17 07:07:36.155405362 -0700
 @@ -610,11 +610,23 @@
  		dropbear_exit("Out of memory"); /* TODO disconnect */
  	}
@@ -371,8 +411,8 @@ diff -Naur dropbear-2019.78.orig/svr-chansession.c dropbear-2019.78/svr-chansess
  		addnewvar("TERM", chansess->term);
  	}
 diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
---- dropbear-2019.78.orig/svr-runopts.c	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/svr-runopts.c	2019-05-22 03:04:34.046325255 -0700
+--- dropbear-2019.78.orig/svr-runopts.c	2019-09-17 01:04:43.587699009 -0700
++++ dropbear-2019.78/svr-runopts.c	2019-09-17 07:07:36.155405362 -0700
 @@ -31,6 +31,8 @@
  #include "ecdsa.h"
  
@@ -518,8 +558,17 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
  	if (svr_opts.portcount == 0) {
  		svr_opts.ports[0] = m_strdup(DROPBEAR_DEFPORT);
 diff -Naur dropbear-2019.78.orig/sysoptions.h dropbear-2019.78/sysoptions.h
---- dropbear-2019.78.orig/sysoptions.h	2019-03-27 07:15:23.000000000 -0700
-+++ dropbear-2019.78/sysoptions.h	2019-05-22 03:00:40.740603514 -0700
+--- dropbear-2019.78.orig/sysoptions.h	2019-09-17 01:04:43.595698131 -0700
++++ dropbear-2019.78/sysoptions.h	2019-09-17 07:07:54.439531682 -0700
+@@ -86,7 +86,7 @@
+ /* Required for pubkey auth */
+ #define DROPBEAR_SIGNKEY_VERIFY ((DROPBEAR_SVR_PUBKEY_AUTH) || (DROPBEAR_CLIENT))
+ 
+-#define DROPBEAR_MAX_PASSWORD_LEN 100
++#define DROPBEAR_MAX_PASSWORD_LEN 256
+ 
+ #define SHA1_HASH_SIZE 20
+ #define MD5_HASH_SIZE 16
 @@ -235,9 +235,9 @@
  #error "DROPBEAR_SVR_PATM_AUTH requires PAM headers. Perhaps ./configure --enable-pam ?"
  #endif

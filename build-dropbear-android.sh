@@ -72,7 +72,6 @@ cd dropbear-$VERSION
 make PROGRAMS="$PROGRAMS"
 MAKE_SUCCESS=$?
 if [ $MAKE_SUCCESS -eq 0 ]; then
-	clear
 	sleep 1
   	# Create the output directory
 	mkdir -p $TARGET/arm;
