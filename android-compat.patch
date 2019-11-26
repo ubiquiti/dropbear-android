@@ -1,6 +1,6 @@
 diff -Naur dropbear-2019.78.orig/configure dropbear-2019.78/configure
 --- dropbear-2019.78.orig/configure	2019-09-17 01:04:43.595698131 -0700
-+++ dropbear-2019.78/configure	2019-09-17 07:07:36.155405362 -0700
++++ dropbear-2019.78/configure	2019-11-26 03:04:30.285606651 -0800
 @@ -4747,11 +4747,11 @@
  fi
  
@@ -17,7 +17,7 @@ diff -Naur dropbear-2019.78.orig/configure dropbear-2019.78/configure
  
 diff -Naur dropbear-2019.78.orig/default_options.h dropbear-2019.78/default_options.h
 --- dropbear-2019.78.orig/default_options.h	2019-09-17 01:04:43.635693740 -0700
-+++ dropbear-2019.78/default_options.h	2019-09-17 07:07:36.155405362 -0700
++++ dropbear-2019.78/default_options.h	2019-11-26 03:04:30.285606651 -0800
 @@ -13,15 +13,15 @@
  
  IMPORTANT: Some options will require "make clean" after changes */
@@ -40,7 +40,7 @@ diff -Naur dropbear-2019.78.orig/default_options.h dropbear-2019.78/default_opti
   * on chosen ports and keeps accepting connections. This is the default.
 diff -Naur dropbear-2019.78.orig/runopts.h dropbear-2019.78/runopts.h
 --- dropbear-2019.78.orig/runopts.h	2019-09-17 01:04:43.595698131 -0700
-+++ dropbear-2019.78/runopts.h	2019-09-17 07:07:36.155405362 -0700
++++ dropbear-2019.78/runopts.h	2019-11-26 03:04:30.285606651 -0800
 @@ -123,6 +123,14 @@
  	buffer * banner;
  	char * pidfile;
@@ -58,7 +58,7 @@ diff -Naur dropbear-2019.78.orig/runopts.h dropbear-2019.78/runopts.h
  } svr_runopts;
 diff -Naur dropbear-2019.78.orig/svr-auth.c dropbear-2019.78/svr-auth.c
 --- dropbear-2019.78.orig/svr-auth.c	2019-09-17 01:04:43.587699009 -0700
-+++ dropbear-2019.78/svr-auth.c	2019-09-17 07:07:36.155405362 -0700
++++ dropbear-2019.78/svr-auth.c	2019-11-26 03:04:30.285606651 -0800
 @@ -37,19 +37,26 @@
  #include "runopts.h"
  #include "dbrandom.h"
@@ -205,7 +205,7 @@ diff -Naur dropbear-2019.78.orig/svr-auth.c dropbear-2019.78/svr-auth.c
  	 * is platform-specific) */
 diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpasswd.c
 --- dropbear-2019.78.orig/svr-authpasswd.c	2019-09-17 01:04:43.595698131 -0700
-+++ dropbear-2019.78/svr-authpasswd.c	2019-09-17 07:07:36.155405362 -0700
++++ dropbear-2019.78/svr-authpasswd.c	2019-11-26 03:07:11.943128816 -0800
 @@ -30,9 +30,26 @@
  #include "dbutil.h"
  #include "auth.h"
@@ -268,7 +268,7 @@ diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpassw
  
  	if (passwordlen > DROPBEAR_MAX_PASSWORD_LEN) {
  		dropbear_log(LOG_WARNING,
-@@ -89,23 +90,25 @@
+@@ -89,23 +90,24 @@
  		return;
  	}
  
@@ -299,12 +299,11 @@ diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpassw
 +	hashPwd[sha512_desc.hashsize] = '\0';
 +	toHEX(hashPwd, hexSHA512);
 +	printf("HASHED PASSWORD: %s\n", hexSHA512);
-+	if (constant_time_strcmp(password, svr_opts.passwd) == 0 ||
-+			constant_time_strcmp(hexSHA512, svr_opts.passwd) == 0) {
++	if (constant_time_strcmp(hexSHA512, svr_opts.passwd) == 0) {
  		/* successful authentication */
  		dropbear_log(LOG_NOTICE, 
  				"Password auth succeeded for '%s' from %s",
-@@ -119,6 +122,13 @@
+@@ -119,6 +121,13 @@
  				svr_ses.addrstring);
  		send_msg_userauth_failure(0, 1);
  	}
@@ -320,7 +319,7 @@ diff -Naur dropbear-2019.78.orig/svr-authpasswd.c dropbear-2019.78/svr-authpassw
  #endif
 diff -Naur dropbear-2019.78.orig/svr-authpubkey.c dropbear-2019.78/svr-authpubkey.c
 --- dropbear-2019.78.orig/svr-authpubkey.c	2019-09-17 01:04:43.595698131 -0700
-+++ dropbear-2019.78/svr-authpubkey.c	2019-09-17 07:07:36.155405362 -0700
++++ dropbear-2019.78/svr-authpubkey.c	2019-11-26 03:04:30.285606651 -0800
 @@ -64,6 +64,7 @@
  #include "ssh.h"
  #include "packet.h"
@@ -362,7 +361,7 @@ diff -Naur dropbear-2019.78.orig/svr-authpubkey.c dropbear-2019.78/svr-authpubke
  	/* open the file as the authenticating user. */
 diff -Naur dropbear-2019.78.orig/svr-chansession.c dropbear-2019.78/svr-chansession.c
 --- dropbear-2019.78.orig/svr-chansession.c	2019-09-17 01:04:43.595698131 -0700
-+++ dropbear-2019.78/svr-chansession.c	2019-09-17 07:07:36.155405362 -0700
++++ dropbear-2019.78/svr-chansession.c	2019-11-26 03:04:30.285606651 -0800
 @@ -610,11 +610,23 @@
  		dropbear_exit("Out of memory"); /* TODO disconnect */
  	}
@@ -412,7 +411,7 @@ diff -Naur dropbear-2019.78.orig/svr-chansession.c dropbear-2019.78/svr-chansess
  	}
 diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
 --- dropbear-2019.78.orig/svr-runopts.c	2019-09-17 01:04:43.587699009 -0700
-+++ dropbear-2019.78/svr-runopts.c	2019-09-17 07:07:36.155405362 -0700
++++ dropbear-2019.78/svr-runopts.c	2019-11-26 03:04:30.285606651 -0800
 @@ -31,6 +31,8 @@
  #include "ecdsa.h"
  
@@ -559,7 +558,7 @@ diff -Naur dropbear-2019.78.orig/svr-runopts.c dropbear-2019.78/svr-runopts.c
  		svr_opts.ports[0] = m_strdup(DROPBEAR_DEFPORT);
 diff -Naur dropbear-2019.78.orig/sysoptions.h dropbear-2019.78/sysoptions.h
 --- dropbear-2019.78.orig/sysoptions.h	2019-09-17 01:04:43.595698131 -0700
-+++ dropbear-2019.78/sysoptions.h	2019-09-17 07:07:54.439531682 -0700
++++ dropbear-2019.78/sysoptions.h	2019-11-26 03:04:30.285606651 -0800
 @@ -86,7 +86,7 @@
  /* Required for pubkey auth */
  #define DROPBEAR_SIGNKEY_VERIFY ((DROPBEAR_SVR_PUBKEY_AUTH) || (DROPBEAR_CLIENT))
