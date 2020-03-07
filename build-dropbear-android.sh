@@ -9,7 +9,6 @@ export TARGET=../target
 # Specify binaries to build. Options: dropbear dropbearkey scp dbclient
 export PROGRAMS="dropbear dropbearkey"
 # Which version of Dropbear to download for patching
-export VERSION=2018.76
 export VERSION=2019.78
 
 # Download the latest version of dropbear SSH
@@ -32,9 +31,7 @@ HOST=arm-linux-androideabi
 # in case you have a NDK version greater or equal to r19 toolchains are
 # already standalone and you should set a COMPILER variable to something like:
 #COMPILER=${TOOLCHAIN}/bin/armv7a-linux-androideabi23-clang
-if [ -z "$COMPILER" ] ; then
-	COMPILER=${TOOLCHAIN}/bin/arm-linux-androideabi-gcc
-fi
+[ ! -x "$COMPILER" ] && COMPILER=${TOOLCHAIN}/bin/armv7a-linux-androideabi23-clang
 STRIP=${TOOLCHAIN}/bin/arm-linux-androideabi-strip
 SYSROOT=${TOOLCHAIN}/sysroot
 
